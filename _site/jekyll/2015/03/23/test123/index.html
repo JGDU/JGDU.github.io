@@ -129,19 +129,100 @@
 }
 
 </code></pre></div>
-<p>该方法就是自定义转场动画的地方.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">- (void)animationEnded:(BOOL) transitionCompleted
+<p>该方法就是自定义转场动画的地方. 方法中提供提供了一个 transitionContext_ 对象.该对象提供另一些对象比如源控制器,目的控制器,等等.</p>
+
+<p>就像你经常去吃羊肉泡馍,但是老板总是把馍泡得太久,变得不好吃,终于有一天你对老板说,我要自己泡,于是服务员端给你一些羊肉汤,和炸好的馍. <code>transitionContext_</code> 就是那个服务员了.</p>
+
+<p>值得注意的是,在自定义动画执行完成后,服务员不会自动清理,你要让他去要清理现场,如下:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">    [transitionContext completeTransition:YES];
+
+</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">- (void)animationEnded:(BOOL) transitionCompleted
 {
 }
 </code></pre></div>
-<p>这个</p>
+<p>这个是动画完成后回调的一样方法.</p>
 
-<p>The theme has been designed with simplicity and readability in mind. It makes
-use of third party services such as Disqus ad AddThis to ensure the blog has
-all the features you would expect from a dynamic application such as Wordpress
-but with the hosting and maintenance simplicity of Jekyll.</p>
+<h3>一个小例子:</h3>
 
-<p>Please use/copy/share Carte Noire!</p>
+<p>从前有个可爱的程序猿和一只产品狗生活在一起;</p>
+
+<p>突然有一天,产品狗对可爱帅气的程序猿说:</p>
+
+<p>你的程序有个bug,页面切换的时候有的时候从下面出来,有的时候从右边出来,我的狗眼都快被恍瞎了.</p>
+
+<p>可爱帅气机智的程序猿看了看觉得,可能的确是个问题,不过他了解过上面的知识,并且有自信在产品狗出院前解决这个问题.</p>
+
+<p>果然我们可爱帅气机智完美的程序猿很快解决了这个问题,这里是他的代码</p>
+
+<p>动画部分主要分为三部分,原页面移动,新页面移动,原页面变暗</p>
+<div class="highlight"><pre><code class="language-" data-lang="">
+- (NSTimeInterval)transitionDuration:(id &lt;UIViewControllerContextTransitioning&gt;)transitionContext
+{
+    return duringTime;
+}
+
+
+- (void)animateTransition:(id&lt;UIViewControllerContextTransitioning&gt;)transitionContext_
+{
+    transitionContext = transitionContext_;
+
+    UIView * containerView =   transitionContext.containerView;
+
+    UIViewController * fromViewContoller = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+
+    UIViewController * toViewController =[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    toView =[toViewController view];
+
+    fromView = [fromViewContoller view];
+
+    [containerView addSubview:toView];
+
+
+
+
+
+    blackShadowView = [[UIView alloc]init];
+    blackShadowView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
+    blackShadowView.frame = containerView.bounds;
+    [fromView addSubview:blackShadowView];
+
+
+    toView.frame = CGRectMake(containerView.frame.size.width, 0, containerView.frame.size.width, containerView.frame.size.height);
+
+
+    [UIView beginAnimations:nil context:nil];
+    //执行动画
+    [UIView setAnimationDuration:duringTime];
+    //设置代理
+    [UIView setAnimationDelegate:self];
+
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+
+    [UIView setAnimationDidStopSelector:@selector(didStopUIAnimation:)];
+
+    toView.frame = CGRectMake(0, 0, containerView.frame.size.width, containerView.frame.size.height);
+
+    fromView.frame = CGRectMake(containerView.frame.size.width * (  -1/4.0f), 0, containerView.frame.size.width, containerView.frame.size.height);
+
+
+    blackShadowView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
+
+    [UIView commitAnimations];
+
+}
+
+//动画结束的时候清理现场
+-(void)didStopUIAnimation:(id)sender
+{
+    [blackShadowView removeFromSuperview];
+    [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+}
+
+
+</code></pre></div>
+<p>效果大概是这样子的</p>
+
+<p><img src="http://127.0.0.1:4000//source/presentWithPushPop1.gif" alt="presentWithPushPop1"></p>
 </span>
 
         
