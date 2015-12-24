@@ -75,6 +75,7 @@ This allows your content to have the proper informational and contextual hierarc
 ### Images look great, too
 
 ![Thumper](http://i.imgur.com/DMCHDqF.jpg)
+![Thumper]({{site.url}}/source/TESTA.png)
 
 
 ### Stylish blockquotes included

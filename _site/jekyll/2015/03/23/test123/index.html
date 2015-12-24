@@ -4,7 +4,7 @@
     <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carte Noire in Action</title>
+<title>金福教你实现控制器转场动画</title>
 <meta name="description" content="A dark blog theme for Jekyll.">
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -78,16 +78,29 @@
     <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
       
       <div class="thumb">
-        <i class="fa fa-cogs fa-4x"></i>
+        <i class="fa fa-heart fa-4x"></i>
       </div>
       
 
-      <h1 class="header" itemprop="name">Carte Noire in Action</h1>
+      <h1 class="header" itemprop="name">金福教你实现控制器转场动画</h1>
 
       <div class="author">
         <small><i>
           
-          on <span itemprop="datePublished" content="2014-08-28">June 10, 2014</span>
+          by
+          <span itemprop="author">
+            
+              <a rel="author" href="http://carte-noire.jacobtomlinson.co.uk/">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Jacob Tomlinson</span>
+            </span>
+            
+              </a>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">March 23, 2015</span>
            under jekyll
         </i></small>
       </div>
@@ -99,84 +112,36 @@
       </div>
 
       <div class="content-panel content">
-        <span itemprop="articleBody"><p><strong>Note</strong> - This article is a derivative of <a href="http://pixyll.com/jekyll/pixyll/2014/06/10/see-pixyll-in-action/">&quot;See pixyll in action&quot;</a>, taken from the lovely jekyll theme <a href="http://pixyll.com/">pixyll</a>.</p>
+        <span itemprop="articleBody"><p>UIKit框架为我们提供了强大的页面切换的功能,无论是导航控制器的push和pop,还是控制器的模态.在带给我们方便的同时,也允许我们定制这些转场动画.</p>
 
-<p>All links are easy to <a href="#">locate and discern</a>, yet don&#39;t detract from the harmony
-of a paragraph. The <em>same</em> goes for italics and <strong>bold</strong> elements. Even the the strikeout
-works if <del>for some reason you need to update your post</del>. For consistency&#39;s sake,
-<ins>The same goes for insertions</ins>, of course.</p>
+<p><em><code>&lt;UIViewControllerAnimatedTransitioning&gt;</code></em>  该协议是自定义这个动画对象所必须实现的:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">-(NSTimeInterval)transitionDuration:(id &lt;UIViewControllerContextTransitioning&gt;)transitionContext
+{
+    return duringTime;
+}
 
-<h3>Code, with syntax highlighting</h3>
 
-<p>Code blocks use the <a href="https://noahfrederick.com/log/lion-terminal-theme-peppermint/">peppermint</a> theme.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Awesome</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
-  <span class="kp">include</span> <span class="no">EvenMoreAwesome</span>
-
-  <span class="n">validates_presence_of</span> <span class="ss">:something</span>
-  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">email_format: </span><span class="kp">true</span>
-
-  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="nb">name</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
-    <span class="nb">self</span><span class="p">.</span><span class="nf">email</span> <span class="o">=</span> <span class="n">email</span>
-    <span class="nb">self</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="nb">name</span>
-  <span class="k">end</span>
-<span class="k">end</span></code></pre></figure>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;title&gt;</span>Title<span class="nt">&lt;/title&gt;</span>
-
-<span class="nt">&lt;style&gt;body</span> <span class="p">{</span><span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;}</span><span class="nt">&lt;/style&gt;</span>
-
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"application/javascript"</span><span class="nt">&gt;</span>
-  <span class="kd">function</span> <span class="nx">$init</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="kc">true</span><span class="p">;}</span>
-<span class="nt">&lt;/script&gt;</span>
-
-<span class="nt">&lt;body&gt;</span>
-  <span class="nt">&lt;p</span> <span class="na">checked</span> <span class="na">class=</span><span class="s">"title"</span> <span class="na">id=</span><span class="s">'title'</span><span class="nt">&gt;</span>Title<span class="nt">&lt;/p&gt;</span>
-  <span class="c">&lt;!-- here goes the rest of the page --&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
 </code></pre></div>
-<h1>Headings!</h1>
+<p>实现该方法返回一个转场时间.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">- (void)animateTransition:(id&lt;UIViewControllerContextTransitioning&gt;)transitionContext_
+{
+///
+}
 
-<p>They&#39;re responsive, and well-proportioned (in <code>padding</code>, <code>line-height</code>, <code>margin</code>, and <code>font-size</code>).</p>
+</code></pre></div>
+<p>该方法就是自定义转场动画的地方.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">- (void)animationEnded:(BOOL) transitionCompleted
+{
+}
+</code></pre></div>
+<p>这个</p>
 
-<h5>They draw the perfect amount of attention</h5>
+<p>The theme has been designed with simplicity and readability in mind. It makes
+use of third party services such as Disqus ad AddThis to ensure the blog has
+all the features you would expect from a dynamic application such as Wordpress
+but with the hosting and maintenance simplicity of Jekyll.</p>
 
-<p>This allows your content to have the proper informational and contextual hierarchy. Yay.</p>
-
-<h3>There are lists, too</h3>
-
-<ul>
-<li>Apples</li>
-<li>Oranges</li>
-<li>Potatoes</li>
-<li>Milk</li>
-</ul>
-
-<ol>
-<li>Mow the lawn</li>
-<li>Feed the dog</li>
-<li>Dance</li>
-</ol>
-
-<h3>Images look great, too</h3>
-
-<p><img src="http://i.imgur.com/DMCHDqF.jpg" alt="Thumper">
-<img src="http://127.0.0.1:4000//source/TESTA.png" alt="Thumper"></p>
-
-<h3>Stylish blockquotes included</h3>
-
-<p>You can use the markdown quote syntax, <code>&gt;</code> for simple quotes.</p>
-
-<blockquote>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis porta mauris.</p>
-</blockquote>
-
-<h3>There&#39;s more being added all the time</h3>
-
-<p>Checkout the <a href="https://github.com/jacobtomlinson/carte-noire">Github repository</a> to request,
-or add, features.</p>
-
-<p>Happy writing.</p>
+<p>Please use/copy/share Carte Noire!</p>
 </span>
 
         
@@ -190,7 +155,7 @@ or add, features.</p>
         <div class="tags">
           <small>
           <i class="fa fa-tags"></i>
-            demo, action, carte, noire
+            welcome, to, carte, noire
           </small>
         </div>
         
