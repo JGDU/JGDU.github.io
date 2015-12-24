@@ -5,8 +5,8 @@
     <description>A dark blog theme for Jekyll.</description>
     <link>http://127.0.0.1:4000//</link>
     <atom:link href="http://127.0.0.1:4000//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 24 Dec 2015 23:57:38 +0800</pubDate>
-    <lastBuildDate>Thu, 24 Dec 2015 23:57:38 +0800</lastBuildDate>
+    <pubDate>Fri, 25 Dec 2015 00:00:52 +0800</pubDate>
+    <lastBuildDate>Fri, 25 Dec 2015 00:00:52 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -14,13 +14,12 @@
         <description>&lt;p&gt;UIKit框架为我们提供了强大的页面切换的功能,无论是导航控制器的push和pop,还是控制器的模态.在带给我们方便的同时,也允许我们定制这些转场动画.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;&lt;code&gt;&amp;lt;UIViewControllerAnimatedTransitioning&amp;gt;&lt;/code&gt;&lt;/em&gt;  该协议是自定义这个动画对象所必须实现的:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;-(NSTimeInterval)transitionDuration:(id &amp;lt;UIViewControllerContextTransitioning&amp;gt;)transitionContext
-{
-    return duringTime;
-}
 
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;NSTimeInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transitionDuration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;UIViewControllerContextTransitioning&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transitionContext&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;duringTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;实现该方法返回一个转场时间.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;- (void)animateTransition:(id&amp;lt;UIViewControllerContextTransitioning&amp;gt;)transitionContext_
 {

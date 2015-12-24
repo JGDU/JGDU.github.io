@@ -115,13 +115,12 @@
         <span itemprop="articleBody"><p>UIKit框架为我们提供了强大的页面切换的功能,无论是导航控制器的push和pop,还是控制器的模态.在带给我们方便的同时,也允许我们定制这些转场动画.</p>
 
 <p><em><code>&lt;UIViewControllerAnimatedTransitioning&gt;</code></em>  该协议是自定义这个动画对象所必须实现的:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">-(NSTimeInterval)transitionDuration:(id &lt;UIViewControllerContextTransitioning&gt;)transitionContext
-{
-    return duringTime;
-}
 
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">-</span><span class="p">(</span><span class="no">NSTimeInterval</span><span class="p">)</span><span class="n">transitionDuration</span><span class="p">:(</span><span class="nb">id</span> <span class="o">&lt;</span><span class="no">UIViewControllerContextTransitioning</span><span class="o">&gt;</span><span class="p">)</span><span class="n">transitionContext</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">duringTime</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
 
-</code></pre></div>
 <p>实现该方法返回一个转场时间.</p>
 <div class="highlight"><pre><code class="language-" data-lang="">- (void)animateTransition:(id&lt;UIViewControllerContextTransitioning&gt;)transitionContext_
 {
