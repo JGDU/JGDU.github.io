@@ -107,7 +107,7 @@
 
       <div class="read-time">
         <small>
-          2 minute read
+          1 minute read
         </small>
       </div>
 
@@ -123,10 +123,10 @@
 
 <p>实现该方法返回一个转场时间.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">-</span> <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">animateTransition</span><span class="p">:(</span><span class="nb">id</span><span class="o">&lt;</span><span class="no">UIViewControllerContextTransitioning</span><span class="o">&gt;</span><span class="p">)</span><span class="n">transitionContext_</span>
-<span class="p">{</span>
-<span class="sr">//</span><span class="o">/</span>
-<span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-objective" data-lang="objective">- (void)animateTransition:(id&lt;UIViewControllerContextTransitioning&gt;)transitionContext_
+{
+///
+}</code></pre></figure>
 
 <p>该方法就是自定义转场动画的地方. 方法中提供提供了一个 transitionContext_ 对象.该对象提供另一些对象比如源控制器,目的控制器,等等.</p>
 
@@ -156,67 +156,67 @@
 
 <p>动画部分主要分为三部分,原页面移动,新页面移动,原页面变暗</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">-</span> <span class="p">(</span><span class="no">NSTimeInterval</span><span class="p">)</span><span class="n">transitionDuration</span><span class="p">:(</span><span class="nb">id</span> <span class="o">&lt;</span><span class="no">UIViewControllerContextTransitioning</span><span class="o">&gt;</span><span class="p">)</span><span class="n">transitionContext</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="n">duringTime</span><span class="p">;</span>
-<span class="p">}</span>
+<figure class="highlight"><pre><code class="language-objective" data-lang="objective">- (NSTimeInterval)transitionDuration:(id &lt;UIViewControllerContextTransitioning&gt;)transitionContext
+{
+    return duringTime;
+}
 
 
-<span class="o">-</span> <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">animateTransition</span><span class="p">:(</span><span class="nb">id</span><span class="o">&lt;</span><span class="no">UIViewControllerContextTransitioning</span><span class="o">&gt;</span><span class="p">)</span><span class="n">transitionContext_</span>
-<span class="p">{</span>
-    <span class="n">transitionContext</span> <span class="o">=</span> <span class="n">transitionContext_</span><span class="p">;</span>
+- (void)animateTransition:(id&lt;UIViewControllerContextTransitioning&gt;)transitionContext_
+{
+    transitionContext = transitionContext_;
     
-    <span class="no">UIView</span> <span class="o">*</span> <span class="n">containerView</span> <span class="o">=</span>   <span class="n">transitionContext</span><span class="p">.</span><span class="nf">containerView</span><span class="p">;</span>
+    UIView * containerView =   transitionContext.containerView;
     
-    <span class="no">UIViewController</span> <span class="o">*</span> <span class="n">fromViewContoller</span> <span class="o">=</span> <span class="p">[</span><span class="n">transitionContext</span> <span class="n">viewControllerForKey</span><span class="ss">:UITransitionContextFromViewControllerKey</span><span class="p">];</span>
+    UIViewController * fromViewContoller = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
-    <span class="no">UIViewController</span> <span class="o">*</span> <span class="n">toViewController</span> <span class="o">=</span><span class="p">[</span><span class="n">transitionContext</span> <span class="n">viewControllerForKey</span><span class="ss">:UITransitionContextToViewControllerKey</span><span class="p">];</span>
-    <span class="n">toView</span> <span class="o">=</span><span class="p">[</span><span class="n">toViewController</span> <span class="n">view</span><span class="p">];</span>
+    UIViewController * toViewController =[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    toView =[toViewController view];
     
-    <span class="n">fromView</span> <span class="o">=</span> <span class="p">[</span><span class="n">fromViewContoller</span> <span class="n">view</span><span class="p">];</span>
+    fromView = [fromViewContoller view];
     
-    <span class="p">[</span><span class="n">containerView</span> <span class="n">addSubview</span><span class="ss">:toView</span><span class="p">];</span>
-    
-    
+    [containerView addSubview:toView];
     
     
     
-    <span class="n">blackShadowView</span> <span class="o">=</span> <span class="p">[[</span><span class="no">UIView</span> <span class="n">alloc</span><span class="p">]</span><span class="n">init</span><span class="p">];</span>
-    <span class="n">blackShadowView</span><span class="p">.</span><span class="nf">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="no">UIColor</span> <span class="n">colorWithRed</span><span class="p">:</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span> <span class="n">green</span><span class="p">:</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span> <span class="n">blue</span><span class="p">:</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span> <span class="n">alpha</span><span class="p">:</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">];</span>
-    <span class="n">blackShadowView</span><span class="p">.</span><span class="nf">frame</span> <span class="o">=</span> <span class="n">containerView</span><span class="p">.</span><span class="nf">bounds</span><span class="p">;</span>
-    <span class="p">[</span><span class="n">fromView</span> <span class="n">addSubview</span><span class="ss">:blackShadowView</span><span class="p">];</span>
     
     
-    <span class="n">toView</span><span class="p">.</span><span class="nf">frame</span> <span class="o">=</span> <span class="no">CGRectMake</span><span class="p">(</span><span class="n">containerView</span><span class="p">.</span><span class="nf">frame</span><span class="p">.</span><span class="nf">size</span><span class="p">.</span><span class="nf">width</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="nf">frame</span><span class="p">.</span><span class="nf">size</span><span class="p">.</span><span class="nf">width</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="nf">frame</span><span class="p">.</span><span class="nf">size</span><span class="p">.</span><span class="nf">height</span><span class="p">);</span>
+    blackShadowView = [[UIView alloc]init];
+    blackShadowView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
+    blackShadowView.frame = containerView.bounds;
+    [fromView addSubview:blackShadowView];
+    
+    
+    toView.frame = CGRectMake(containerView.frame.size.width, 0, containerView.frame.size.width, containerView.frame.size.height);
 
     
-    <span class="p">[</span><span class="no">UIView</span> <span class="n">beginAnimations</span><span class="ss">:nil</span> <span class="n">context</span><span class="ss">:nil</span><span class="p">];</span>
-    <span class="sr">//</span><span class="err">执行动画</span>
-    <span class="p">[</span><span class="no">UIView</span> <span class="n">setAnimationDuration</span><span class="ss">:duringTime</span><span class="p">];</span>
-    <span class="sr">//</span><span class="err">设置代理</span>
-    <span class="p">[</span><span class="no">UIView</span> <span class="n">setAnimationDelegate</span><span class="ss">:self</span><span class="p">];</span>
+    [UIView beginAnimations:nil context:nil];
+    //执行动画
+    [UIView setAnimationDuration:duringTime];
+    //设置代理
+    [UIView setAnimationDelegate:self];
     
-    <span class="p">[</span><span class="no">UIView</span> <span class="n">setAnimationCurve</span><span class="ss">:UIViewAnimationCurveEaseInOut</span><span class="p">];</span>
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     
-    <span class="p">[</span><span class="no">UIView</span> <span class="n">setAnimationDidStopSelector</span><span class="ss">:@selector</span><span class="p">(</span><span class="n">didStopUIAnimation</span><span class="p">:)];</span>
+    [UIView setAnimationDidStopSelector:@selector(didStopUIAnimation:)];
     
-    <span class="n">toView</span><span class="p">.</span><span class="nf">frame</span> <span class="o">=</span> <span class="no">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="nf">frame</span><span class="p">.</span><span class="nf">size</span><span class="p">.</span><span class="nf">width</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="nf">frame</span><span class="p">.</span><span class="nf">size</span><span class="p">.</span><span class="nf">height</span><span class="p">);</span>
+    toView.frame = CGRectMake(0, 0, containerView.frame.size.width, containerView.frame.size.height);
     
-    <span class="n">fromView</span><span class="p">.</span><span class="nf">frame</span> <span class="o">=</span> <span class="no">CGRectMake</span><span class="p">(</span><span class="n">containerView</span><span class="p">.</span><span class="nf">frame</span><span class="p">.</span><span class="nf">size</span><span class="p">.</span><span class="nf">width</span> <span class="o">*</span> <span class="p">(</span>  <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="n">f</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="nf">frame</span><span class="p">.</span><span class="nf">size</span><span class="p">.</span><span class="nf">width</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="nf">frame</span><span class="p">.</span><span class="nf">size</span><span class="p">.</span><span class="nf">height</span><span class="p">);</span>
+    fromView.frame = CGRectMake(containerView.frame.size.width * (  -1/4.0f), 0, containerView.frame.size.width, containerView.frame.size.height);
 
     
-    <span class="n">blackShadowView</span><span class="p">.</span><span class="nf">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="no">UIColor</span> <span class="n">colorWithRed</span><span class="p">:</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span> <span class="n">green</span><span class="p">:</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span> <span class="n">blue</span><span class="p">:</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span> <span class="n">alpha</span><span class="p">:</span><span class="mi">0</span><span class="o">.</span><span class="mi">5</span><span class="p">];</span>
+    blackShadowView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
     
-    <span class="p">[</span><span class="no">UIView</span> <span class="n">commitAnimations</span><span class="p">];</span>
+    [UIView commitAnimations];
     
-<span class="p">}</span>
+}
 
-<span class="sr">//</span><span class="err">动画结束的时候清理现场</span>
-<span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">didStopUIAnimation</span><span class="p">:(</span><span class="nb">id</span><span class="p">)</span><span class="n">sender</span>
-<span class="p">{</span>
-    <span class="p">[</span><span class="n">blackShadowView</span> <span class="n">removeFromSuperview</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">transitionContext</span> <span class="n">completeTransition</span><span class="p">:</span><span class="o">!</span><span class="p">[</span><span class="n">transitionContext</span> <span class="n">transitionWasCancelled</span><span class="p">]];</span>
-<span class="p">}</span></code></pre></figure>
+//动画结束的时候清理现场
+-(void)didStopUIAnimation:(id)sender
+{
+    [blackShadowView removeFromSuperview];
+    [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+}</code></pre></figure>
 
 <p>效果大概是这样子的</p>
 
