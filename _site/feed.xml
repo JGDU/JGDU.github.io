@@ -5,8 +5,8 @@
     <description>A dark blog theme for Jekyll.</description>
     <link>http://127.0.0.1:4000//</link>
     <atom:link href="http://127.0.0.1:4000//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 25 Dec 2015 00:03:16 +0800</pubDate>
-    <lastBuildDate>Fri, 25 Dec 2015 00:03:16 +0800</lastBuildDate>
+    <pubDate>Fri, 25 Dec 2015 00:08:35 +0800</pubDate>
+    <lastBuildDate>Fri, 25 Dec 2015 00:08:35 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -15,10 +15,10 @@
 
 &lt;p&gt;&lt;em&gt;&lt;code&gt;&amp;lt;UIViewControllerAnimatedTransitioning&amp;gt;&lt;/code&gt;&lt;/em&gt;  该协议是自定义这个动画对象所必须实现的:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;NSTimeInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transitionDuration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;UIViewControllerContextTransitioning&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transitionContext&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;duringTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objective&quot; data-lang=&quot;objective&quot;&gt;-(NSTimeInterval)transitionDuration:(id &amp;lt;UIViewControllerContextTransitioning&amp;gt;)transitionContext
+{
+    return duringTime;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;实现该方法返回一个转场时间.&lt;/p&gt;
 

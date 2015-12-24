@@ -116,10 +116,10 @@
 
 <p><em><code>&lt;UIViewControllerAnimatedTransitioning&gt;</code></em>  该协议是自定义这个动画对象所必须实现的:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">-</span><span class="p">(</span><span class="no">NSTimeInterval</span><span class="p">)</span><span class="n">transitionDuration</span><span class="p">:(</span><span class="nb">id</span> <span class="o">&lt;</span><span class="no">UIViewControllerContextTransitioning</span><span class="o">&gt;</span><span class="p">)</span><span class="n">transitionContext</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="n">duringTime</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-objective" data-lang="objective">-(NSTimeInterval)transitionDuration:(id &lt;UIViewControllerContextTransitioning&gt;)transitionContext
+{
+    return duringTime;
+}</code></pre></figure>
 
 <p>实现该方法返回一个转场时间.</p>
 
