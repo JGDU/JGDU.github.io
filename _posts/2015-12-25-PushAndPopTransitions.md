@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:      张进福教你实现控制器转场动画
+title:      逗比福教你实现控制器转场动画
 date:       2015-03-23 15:31:19
-author:     Jacob Tomlinson
-summary:    Carte Noire is a dark blog theme for Jekyll focusing on a clear reading experience.
-categories: jekyll
+author:     haolj
+summary:   
+categories: 交互动画
 thumbnail:  heart
 tags:
  - welcome
