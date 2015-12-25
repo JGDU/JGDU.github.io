@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      逗比福教你实现控制器转场动画
+title:      手把手教你实现控制器转场动画
 date:       2015-03-23 15:31:19
 author:     haolj
 summary:   
