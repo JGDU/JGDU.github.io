@@ -4,8 +4,8 @@
     <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>金福教你实现控制器转场动画</title>
-<meta name="description" content="A dark blog theme for Jekyll.">
+<title>张进福教你实现控制器转场动画</title>
+<meta name="description" content="简洁就是力量">
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -46,7 +46,7 @@
 
     <nav id="my-menu">
   <div>
-    <p>Carte Noire</p>
+    <p>重剑无锋 大巧不工</p>
 
     <ul class="pages">
       <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
@@ -55,11 +55,11 @@
     </ul>
 
     <p class="links">
-  <a href="http://www.twitter.com/_jacobtomlinson" target="_new"><i class="fa fa-twitter"></i></a>
-  <a href="http://carte-noire.jacobtomlinson.co.uk/" target="_new"><i class="fa fa-linkedin"></i></a>
-  <a href="http://carte-noire.jacobtomlinson.co.uk/" target="_new"><i class="fa fa-google-plus"></i></a>
-  <a href="https://github.com/jacobtomlinson" target="_new"><i class="fa fa-github-alt"></i></a>
-  <a href="http://carte-noire.jacobtomlinson.co.uk/" target="_new"><i class="fa fa-stack-overflow"></i></a>
+  
+  
+  
+  <a href="https://github.com/jianAjian" target="_new"><i class="fa fa-github-alt"></i></a>
+  
   <a href="/feed.xml" target="_new"><i class="fa fa-rss"></i></a>
 </p>
 
@@ -82,7 +82,7 @@
       </div>
       
 
-      <h1 class="header" itemprop="name">金福教你实现控制器转场动画</h1>
+      <h1 class="header" itemprop="name">张进福教你实现控制器转场动画</h1>
 
       <div class="author">
         <small><i>
@@ -90,13 +90,9 @@
           by
           <span itemprop="author">
             
-              <a rel="author" href="http://carte-noire.jacobtomlinson.co.uk/">
-            
             <span itemprop="author" itemscope itemtype="http://schema.org/Person">
               <span itemprop="name">Jacob Tomlinson</span>
             </span>
-            
-              </a>
             
           </span>
           
@@ -107,7 +103,7 @@
 
       <div class="read-time">
         <small>
-          2 minute read
+          3 minute read
         </small>
       </div>
 
@@ -121,14 +117,14 @@
     <span class="k">return</span> <span class="n">duringTime</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>实现该方法返回一个转场时间.</p>
+<p>实现上面的方法返回一个转场时间.</p>
 
 <figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">animateTransition</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n">UIViewControllerContextTransitioning</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">transitionContext_</span>
 <span class="p">{</span>
 <span class="c1">///
 </span><span class="p">}</span></code></pre></figure>
 
-<p>该方法就是自定义转场动画的地方. 方法中提供提供了一个 transitionContext_ 对象.该对象提供另一些对象比如源控制器,目的控制器,等等.</p>
+<p>上面的方法就是自定义转场动画的地方. 方法中提供提供了一个 transitionContext_ 对象.该对象提供另一些对象比如源控制器,目的控制器,等等.</p>
 
 <p>就像你经常去吃羊肉泡馍,但是老板总是把馍泡得太久,变得不好吃,终于有一天你对老板说,我要自己泡,于是服务员端给你一些羊肉汤,和炸好的馍. <code>transitionContext_</code> 就是那个服务员了.</p>
 
@@ -144,17 +140,19 @@
 
 <h3>一个小例子:</h3>
 
-<p>从前有个可爱的程序猿和一只产品狗生活在一起;</p>
+<p>从前有个帅气的程序猿和一只产品狗生活在一起;</p>
 
 <p>突然有一天,产品狗对可爱帅气的程序猿说:</p>
 
 <p>你的程序有个bug,页面切换的时候有的时候从下面出来,有的时候从右边出来,我的狗眼都快被恍瞎了.</p>
 
-<p>可爱帅气机智的程序猿看了看觉得,可能的确是个问题,不过他了解过上面的知识,并且有自信在产品狗出院前解决这个问题.</p>
+<p>一番激烈的讨论后,程序猿也觉得,可能的确是个问题,不过他了解过上面的知识,并且有自信在产品狗出院前解决这个问题.</p>
 
 <p>果然我们可爱帅气机智完美的程序猿很快解决了这个问题,这里是他的代码</p>
 
 <p>动画部分主要分为三部分,原页面移动,新页面移动,原页面变暗</p>
+
+<p>下面的代码可以再这里下载 [源码][1]</p>
 
 <figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">-</span> <span class="p">(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="nf">transitionDuration</span><span class="p">:(</span><span class="n">id</span> <span class="o">&lt;</span><span class="n">UIViewControllerContextTransitioning</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">transitionContext</span>
 <span class="p">{</span>
@@ -174,14 +172,14 @@
     <span class="n">toView</span> <span class="o">=</span><span class="p">[</span><span class="n">toViewController</span> <span class="nf">view</span><span class="p">];</span>
     
     <span class="n">fromView</span> <span class="o">=</span> <span class="p">[</span><span class="n">fromViewContoller</span> <span class="nf">view</span><span class="p">];</span>
-    
-    <span class="p">[</span><span class="n">containerView</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">toView</span><span class="p">];</span>
-    
-    
-    
+    <span class="c1">/// containerView  默认已经添加了fromView
+</span> <span class="c1">/// 只需要添加 toView
+</span>    <span class="p">[</span><span class="n">containerView</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">toView</span><span class="p">];</span>
     
     
-    <span class="n">blackShadowView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIView</span> <span class="nf">alloc</span><span class="p">]</span><span class="nf">init</span><span class="p">];</span>
+    
+    <span class="c1">///添加阴影
+</span>    <span class="n">blackShadowView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIView</span> <span class="nf">alloc</span><span class="p">]</span><span class="nf">init</span><span class="p">];</span>
     <span class="n">blackShadowView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">colorWithRed</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">green</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">blue</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">alpha</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">];</span>
     <span class="n">blackShadowView</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">containerView</span><span class="p">.</span><span class="n">bounds</span><span class="p">;</span>
     <span class="p">[</span><span class="n">fromView</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">blackShadowView</span><span class="p">];</span>
@@ -199,13 +197,13 @@
     <span class="p">[</span><span class="n">UIView</span> <span class="nf">setAnimationCurve</span><span class="p">:</span><span class="n">UIViewAnimationCurveEaseInOut</span><span class="p">];</span>
     
     <span class="p">[</span><span class="n">UIView</span> <span class="nf">setAnimationDidStopSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nf">didStopUIAnimation</span><span class="p">:)];</span>
-    
-    <span class="n">toView</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
-    
-    <span class="n">fromView</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span> <span class="o">*</span> <span class="p">(</span>  <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
+    <span class="c1">///---动画1 目的视图位移
+</span>    <span class="n">toView</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
+    <span class="c1">///---动画2 源视图位移
+</span>    <span class="n">fromView</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span> <span class="o">*</span> <span class="p">(</span>  <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
 
-    
-    <span class="n">blackShadowView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">colorWithRed</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">green</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">blue</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">alpha</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">];</span>
+    <span class="c1">//---动画3 变暗
+</span>    <span class="n">blackShadowView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">colorWithRed</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">green</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">blue</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">alpha</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">];</span>
     
     <span class="p">[</span><span class="n">UIView</span> <span class="nf">commitAnimations</span><span class="p">];</span>
     
@@ -214,13 +212,17 @@
 <span class="c1">//动画结束的时候清理现场
 </span><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didStopUIAnimation</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">sender</span>
 <span class="p">{</span>
-    <span class="p">[</span><span class="n">blackShadowView</span> <span class="nf">removeFromSuperview</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">transitionContext</span> <span class="nf">completeTransition</span><span class="p">:</span><span class="o">!</span><span class="p">[</span><span class="n">transitionContext</span> <span class="nf">transitionWasCancelled</span><span class="p">]];</span>
+    <span class="c1">//移除遮罩层
+</span>    <span class="p">[</span><span class="n">blackShadowView</span> <span class="nf">removeFromSuperview</span><span class="p">];</span>
+    <span class="c1">//通知转场完成 -- 清理现场
+</span>    <span class="p">[</span><span class="n">transitionContext</span> <span class="nf">completeTransition</span><span class="p">:</span><span class="o">!</span><span class="p">[</span><span class="n">transitionContext</span> <span class="nf">transitionWasCancelled</span><span class="p">]];</span>
 <span class="p">}</span></code></pre></figure>
 
 <p>效果大概是这样子的</p>
 
 <p><img src="http://127.0.0.1:4000//source/presentWithPushPop1.gif" alt="presentWithPushPop1"></p>
+
+<p>[1]: </p>
 </span>
 
         
@@ -243,7 +245,7 @@
 
       <div class="content-panel feedback">
         I <i class="fa fa-heart"></i> feedback.<br />
-        Let me know what you think of this article on twitter <a href="http://www.twitter.com/_jacobtomlinson">@_jacobtomlinson</a> or leave a comment below!
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/">@</a> or leave a comment below!
       </div>
 
       
@@ -267,7 +269,7 @@
 <script type="text/javascript">
 /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 function disqus_config() { this.experiment.enable_scroll_container = true; }
-var disqus_shortname = "cartenoire"; // required: replace example with your forum shortname
+var disqus_shortname = "jianAjian"; // required: replace example with your forum shortname
 /* * * DON'T EDIT BELOW THIS LINE * * */
 (function() {
   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -282,10 +284,10 @@ var disqus_shortname = "cartenoire"; // required: replace example with your foru
 
     <div class="footer clearfix">
   <div class="col-md-6">
-    Made with <i class="fa fa-heart"></i> by <a href="https://twitter.com/_JacobTomlinson">Jacob Tomlinson</a>
+    感谢作者 <i class="fa fa-heart"></i><a href="https://twitter.com/_JacobTomlinson">Jacob Tomlinson</a>提供该博客模板
   </div>
   <div class="col-md-6">
-    &lt;/&gt; on <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+    <a href="https://github.com/jacobtomlinson/carte-noire">模板地址</a> &nbsp;<i class="fa fa-github-alt"></i>
   </div>
 </div>
 

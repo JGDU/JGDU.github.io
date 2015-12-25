@@ -1,27 +1,27 @@
 # Site settings
-title: "Carte Noire"
-email: jacob@jacobtomlinson.co.uk
-description: "A dark blog theme for Jekyll."
+title: "重剑无锋 大巧不工"
+email: 295938867@qq.com
+description: "简洁就是力量"
 baseurl: ""
 url: "http://127.0.0.1:4000/"
-title_description: "A dark blog theme for Jekyll focusing on a clear reading experience. Large text and a narrow body makes carte noire a gorgeous read. With excellent code snippet support and integrated tools such as AddThis and Disqus giving your Jekyll blog all the functionality your users expect."
-title_image: "http://www.gravatar.com/avatar/00000000000000000000000000000000?s=500&d=mm"
+title_description: "在光明中高举，在死的阴影里把它收起。<br>和你的星星一同放进夜的宝盒，早晨，让它在礼拜声中开放的鲜花丛里找到它自己。"
+title_image: "http://123.56.226.104/haolj_gitImage/JGDU_header.png"
 google_analytics: "UA-20365477-4"
-disqus_account: cartenoire
-github_repository: https://github.com/jacobtomlinson/carte-noire
+disqus_account: jianAjian
+github_repository: https://github.com/JGDU/JGDU.github.io
 addthis_id: ra-513c6fa83da6ec67
 post_limit: 5
 
 # Social usernames/URLs
-twitter_username: _jacobtomlinson
-github_username:  jacobtomlinson
-linkedin_link: http://carte-noire.jacobtomlinson.co.uk/
-google_plus_link: http://carte-noire.jacobtomlinson.co.uk/
-stackoverflow_link: http://carte-noire.jacobtomlinson.co.uk/
+# twitter_username: _jacobtomlinson
+github_username:  jianAjian
+# linkedin_link: http://carte-noire.jacobtomlinson.co.uk/
+# google_plus_link: http://carte-noire.jacobtomlinson.co.uk/
+# stackoverflow_link: http://carte-noire.jacobtomlinson.co.uk/
 
 # Footer
-footer_left: "Made with <i class=\"fa fa-heart\"></i> by <a href=\"https://twitter.com/_JacobTomlinson\">Jacob Tomlinson</a>"
-footer_right: "&lt;/&gt; on <a href=\"https://github.com/jacobtomlinson/carte-noire\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
+footer_left: "感谢作者 <i class=\"fa fa-heart\"></i><a href=\"https://twitter.com/_JacobTomlinson\">Jacob Tomlinson</a>提供该博客模板"
+footer_right: "<a href=\"https://github.com/jacobtomlinson/carte-noire\">模板地址</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
 
 # Build settings
 markdown: redcarpet
