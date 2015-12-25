@@ -148,8 +148,143 @@ _`<UIViewControllerAnimatedTransitioning>`_  该协议是自定义这个动画�
   ![presentWithPushPop1]({{site.url}}/source/presentWithPushPop1.gif)
 
 
+##第二天
+
+上午,产品经理出院了,他看了效果后觉得可以加一个类似边缘侧滑的手势用于返回,帅气的程序猿觉得很有道理,并且又将产品经理送回了医院.然后着手开发.
+
+控制转场动画的进度 需要一个实现  _` <UIPercentDrivenInteractiveTransition>`_ 协议,来控制进度, 苹果官方建议: 可以使用实现 _`<UIViewControllerAnimatedTransitioning>`_ 协议的那个类.并且提供了一个名为 `UIPercentDrivenInteractiveTransition `  的类 , 它已经实现了该协议. 
+
+`UIPercentDrivenInteractiveTransition` 对UI动画支持的很好, 当你想要使用CA动画的话,你可能需要使用 [SCPercentDrivenInteractiveTransition][2],
+
+ok  将刚才实现的类的父类改为 `:UIPercentDrivenInteractiveTransition` 
+
+接下来大概是下面这些步骤:
+
+* 1 在上面的视图上添加一个手势.
+
+{% highlight objc %}
+
+///绑定一个手势
+-(void)bindPanGestureWithView:(UIView *)view WithBeginBlock:(void(^)())block;
+{
+    navContoller = (UIViewController *)[view nextResponder];
+    UIScreenEdgePanGestureRecognizer * screenEdgepanGesture = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(panBack:)];
+    
+    screenEdgepanGesture.edges = UIRectEdgeLeft;
+    
+    
+    screenEdgepanGesture.delegate = self;
+    
+    self.beginBlock = block;
+    
+    [view addGestureRecognizer:screenEdgepanGesture];
+    
+}
+
+
+{% endhighlight %}
+
+
+* 2 手势开始的时候,执行开始转场动画.
+
+* 3 通过手势的进度控制动画的进度.
+
+* 4 手势结束的时候,根据加速度开判断要取消交互动画,还是完成它.
+
+{% highlight objc %}
+
+-(void)panBack:(UIScreenEdgePanGestureRecognizer *)pan
+{
+    
+    UIView * view = pan.view;
+    switch (pan.state) {
+        case UIGestureRecognizerStateBegan:
+        {
+            panBegin = YES;
+            
+            if (!self.beginBlock) {
+                [NSException exceptionWithName:@"missing Block" reason:@"Block is require here" userInfo:nil];
+            }
+            
+            self.beginBlock();
+            
+            return;
+        }
+
+        case UIGestureRecognizerStateChanged:
+        {
+            CGFloat translation = [pan translationInView:view].x;
+            
+            CGFloat presenter = translation/CGRectGetWidth(view.bounds);
+            
+            [self updateInteractiveTransition:presenter];
+            return;
+        }
+        case UIGestureRecognizerStateEnded:
+        {
+            panBegin = NO;
+            
+            if ([pan velocityInView:view].x>0 ) {
+                [self finishInteractiveTransition];
+            }else{
+                [self cancelInteractiveTransition];
+            }
+            return;
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+
+{% endhighlight %}
+
+
+
+此外我们要在使用的时候也要添加一个代理方法
+
+{% highlight objc %}
+
+- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator
+{
+    return [self.rightOutTransition getTransition];
+}
+
+{% endhighlight %}
+
+
+上面的代码很容易理解,添加完交互的源码可以在 [这里][3] 下载
+
+##注意:
+
+导航控制器默认被添加了屏幕侧滑手势,当模态出一个导航控制器,有可能就直接执行我们添加的手势,一下全部返回,所以应当做一些处理:
+
+{% highlight objc %}
+
+#pragma mark -  gestureRecognizer delegate
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if ([navContoller isKindOfClass:[UINavigationController class]]&&((UINavigationController *)navContoller).viewControllers.count>1) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+{% endhighlight %}
+
+这样问题就被解决了.
+
+
+  ![presentWithPushPop2]({{site.url}}/source/presentWithPushPop2.gif)
 
 
 
 
 [1]: https://github.com/jianAjian/PushAndPopTransitions/tree/master
+
+[2]: https://github.com/stringcode86/UIPercentDrivenInteractiveTransitionWithCABasicAnimation/blob/master/InteractiveTransition/SCPercentDrivenInteractiveTransition.h
+
+[3]:https://github.com/jianAjian/PushAndPopTransitions/tree/InteractionAdded
