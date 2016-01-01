@@ -1,16 +1,14 @@
 ---
 layout:     post
 title:      手把手教你实现控制器转场动画
-date:       2015-03-23 15:31:19
+date:       2015-12-25 15:31:19
 author:     haolj
-summary:   
-categories: 交互动画
-thumbnail:  heart
+summary:    .
+categories: objc
+thumbnail: heart
 tags:
- - welcome
- - to
- - carte
- - noire
+ - about
+ - jekyll
 ---
 
 

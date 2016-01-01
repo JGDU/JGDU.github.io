@@ -3,14 +3,14 @@
   <channel>
     <title>重剑无锋 大巧不工</title>
     <description>简洁就是力量</description>
-    <link>http://127.0.0.1:4000//</link>
-    <atom:link href="http://127.0.0.1:4000//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 25 Dec 2015 11:44:08 +0800</pubDate>
-    <lastBuildDate>Fri, 25 Dec 2015 11:44:08 +0800</lastBuildDate>
+    <link>http://jgdu.github.io//</link>
+    <atom:link href="http://jgdu.github.io//feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 01 Jan 2016 15:57:45 +0800</pubDate>
+    <lastBuildDate>Fri, 01 Jan 2016 15:57:45 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>张进福教你实现控制器转场动画</title>
+        <title>手把手教你实现控制器转场动画</title>
         <description>&lt;p&gt;UIKit框架为我们提供了强大的页面切换的功能,无论是导航控制器的push和pop,还是控制器的模态.在带给我们方便的同时,也允许我们定制这些转场动画.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;&lt;code&gt;&amp;lt;UIViewControllerAnimatedTransitioning&amp;gt;&lt;/code&gt;&lt;/em&gt;  该协议是自定义这个动画对象所必须实现的:&lt;/p&gt;
@@ -55,7 +55,7 @@
 
 &lt;p&gt;动画部分主要分为三部分,原页面移动,新页面移动,原页面变暗&lt;/p&gt;
 
-&lt;p&gt;下面的代码可以再这里下载 [源码][1]&lt;/p&gt;
+&lt;p&gt;下面的代码可以再这里下载 &lt;a href=&quot;https://github.com/jianAjian/PushAndPopTransitions/tree/master&quot;&gt;源码&lt;/a&gt;&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objc&quot; data-lang=&quot;objc&quot;&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSTimeInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;transitionDuration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIViewControllerContextTransitioning&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;transitionContext&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -123,226 +123,129 @@
 
 &lt;p&gt;效果大概是这样子的&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000//source/presentWithPushPop1.gif&quot; alt=&quot;presentWithPushPop1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://jgdu.github.io//source/presentWithPushPop1.gif&quot; alt=&quot;presentWithPushPop1&quot;&gt;&lt;/p&gt;
 
-&lt;p&gt;[1]: &lt;/p&gt;
-</description>
-        <pubDate>Mon, 23 Mar 2015 23:31:19 +0800</pubDate>
-        <link>http://127.0.0.1:4000//jekyll/2015/03/23/PushAndPopTransitions/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000//jekyll/2015/03/23/PushAndPopTransitions/</guid>
-        
-        <category>welcome</category>
-        
-        <category>to</category>
-        
-        <category>carte</category>
-        
-        <category>noire</category>
-        
-        
-        <category>jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>Welcome to Carte Noire</title>
-        <description>&lt;p&gt;Welcome to Carte Noire.&lt;/p&gt;
+&lt;h2&gt;第二天&lt;/h2&gt;
 
-&lt;p&gt;Carte Noire began as a new theme for &lt;a href=&quot;http://www.jacobtomlinson.co.uk/&quot;&gt;my personal blog&lt;/a&gt;, but has now taken
-on a life of its own as a free theme for Jekyll.&lt;/p&gt;
+&lt;p&gt;上午,产品经理出院了,他看了效果后觉得可以加一个类似边缘侧滑的手势用于返回,帅气的程序猿觉得很有道理,并且又将产品经理送回了医院.然后着手开发.&lt;/p&gt;
 
-&lt;p&gt;The theme has been designed with simplicity and readability in mind. It makes
-use of third party services such as Disqus ad AddThis to ensure the blog has
-all the features you would expect from a dynamic application such as Wordpress
-but with the hosting and maintenance simplicity of Jekyll.&lt;/p&gt;
+&lt;p&gt;控制转场动画的进度 需要一个实现  &lt;em&gt;&lt;code&gt;&amp;lt;UIPercentDrivenInteractiveTransition&amp;gt;&lt;/code&gt;&lt;/em&gt; 协议,来控制进度, 苹果官方建议: 可以使用实现 &lt;em&gt;&lt;code&gt;&amp;lt;UIViewControllerAnimatedTransitioning&amp;gt;&lt;/code&gt;&lt;/em&gt; 协议的那个类.并且提供了一个名为 &lt;code&gt;UIPercentDrivenInteractiveTransition&lt;/code&gt;  的类 , 它已经实现了该协议. &lt;/p&gt;
 
-&lt;p&gt;Please use/copy/share Carte Noire!&lt;/p&gt;
-</description>
-        <pubDate>Mon, 23 Mar 2015 23:31:19 +0800</pubDate>
-        <link>http://127.0.0.1:4000//jekyll/2015/03/23/welcome-to-carte-noir/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000//jekyll/2015/03/23/welcome-to-carte-noir/</guid>
-        
-        <category>welcome</category>
-        
-        <category>to</category>
-        
-        <category>carte</category>
-        
-        <category>noire</category>
-        
-        
-        <category>jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>Carte Noire in Action</title>
-        <description>&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; - This article is a derivative of &lt;a href=&quot;http://pixyll.com/jekyll/pixyll/2014/06/10/see-pixyll-in-action/&quot;&gt;&amp;quot;See pixyll in action&amp;quot;&lt;/a&gt;, taken from the lovely jekyll theme &lt;a href=&quot;http://pixyll.com/&quot;&gt;pixyll&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;UIPercentDrivenInteractiveTransition&lt;/code&gt; 对UI动画支持的很好, 当你想要使用CA动画的话,你可能需要使用 &lt;a href=&quot;https://github.com/stringcode86/UIPercentDrivenInteractiveTransitionWithCABasicAnimation/blob/master/InteractiveTransition/SCPercentDrivenInteractiveTransition.h&quot;&gt;SCPercentDrivenInteractiveTransition&lt;/a&gt;,&lt;/p&gt;
 
-&lt;p&gt;All links are easy to &lt;a href=&quot;#&quot;&gt;locate and discern&lt;/a&gt;, yet don&amp;#39;t detract from the harmony
-of a paragraph. The &lt;em&gt;same&lt;/em&gt; goes for italics and &lt;strong&gt;bold&lt;/strong&gt; elements. Even the the strikeout
-works if &lt;del&gt;for some reason you need to update your post&lt;/del&gt;. For consistency&amp;#39;s sake,
-&lt;ins&gt;The same goes for insertions&lt;/ins&gt;, of course.&lt;/p&gt;
+&lt;p&gt;ok  将刚才实现的类的父类改为 &lt;code&gt;:UIPercentDrivenInteractiveTransition&lt;/code&gt; &lt;/p&gt;
 
-&lt;h3&gt;Code, with syntax highlighting&lt;/h3&gt;
-
-&lt;p&gt;Code blocks use the &lt;a href=&quot;https://noahfrederick.com/log/lion-terminal-theme-peppermint/&quot;&gt;peppermint&lt;/a&gt; theme.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Awesome&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
-  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;EvenMoreAwesome&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;validates_presence_of&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:something&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;email_format: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Title&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;500px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;application/javascript&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;checked&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;title&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;title&#39;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Title&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- here goes the rest of the page --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1&gt;Headings!&lt;/h1&gt;
-
-&lt;p&gt;They&amp;#39;re responsive, and well-proportioned (in &lt;code&gt;padding&lt;/code&gt;, &lt;code&gt;line-height&lt;/code&gt;, &lt;code&gt;margin&lt;/code&gt;, and &lt;code&gt;font-size&lt;/code&gt;).&lt;/p&gt;
-
-&lt;h5&gt;They draw the perfect amount of attention&lt;/h5&gt;
-
-&lt;p&gt;This allows your content to have the proper informational and contextual hierarchy. Yay.&lt;/p&gt;
-
-&lt;h3&gt;There are lists, too&lt;/h3&gt;
+&lt;p&gt;接下来大概是下面这些步骤:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Apples&lt;/li&gt;
-&lt;li&gt;Oranges&lt;/li&gt;
-&lt;li&gt;Potatoes&lt;/li&gt;
-&lt;li&gt;Milk&lt;/li&gt;
+&lt;li&gt;1 在上面的视图上添加一个手势.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Mow the lawn&lt;/li&gt;
-&lt;li&gt;Feed the dog&lt;/li&gt;
-&lt;li&gt;Dance&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3&gt;Images look great, too&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/DMCHDqF.jpg&quot; alt=&quot;Thumper&quot;&gt;
-&lt;img src=&quot;http://127.0.0.1:4000//source/TESTA.png&quot; alt=&quot;Thumper&quot;&gt;&lt;/p&gt;
-
-&lt;h3&gt;Stylish blockquotes included&lt;/h3&gt;
-
-&lt;p&gt;You can use the markdown quote syntax, &lt;code&gt;&amp;gt;&lt;/code&gt; for simple quotes.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis porta mauris.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3&gt;There&amp;#39;s more being added all the time&lt;/h3&gt;
-
-&lt;p&gt;Checkout the &lt;a href=&quot;https://github.com/jacobtomlinson/carte-noire&quot;&gt;Github repository&lt;/a&gt; to request,
-or add, features.&lt;/p&gt;
-
-&lt;p&gt;Happy writing.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 10 Jun 2014 20:31:19 +0800</pubDate>
-        <link>http://127.0.0.1:4000//jekyll/2014/06/10/carte-noire-in-action/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000//jekyll/2014/06/10/carte-noire-in-action/</guid>
-        
-        <category>demo</category>
-        
-        <category>action</category>
-        
-        <category>carte</category>
-        
-        <category>noire</category>
-        
-        
-        <category>jekyll</category>
-        
-      </item>
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objc&quot; data-lang=&quot;objc&quot;&gt;&lt;span class=&quot;c1&quot;&gt;///绑定一个手势
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bindPanGestureWithView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;view&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;WithBeginBlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)())&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;navContoller&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIViewController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;nextResponder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;UIScreenEdgePanGestureRecognizer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;screenEdgepanGesture&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIScreenEdgePanGestureRecognizer&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;initWithTarget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;@selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;panBack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:)];&lt;/span&gt;
     
-      <item>
-        <title>So, What is Jekyll?</title>
-        <description>&lt;p&gt;Jekyll is a tool for transforming your plain text into static websites and
-blogs. It is simple, static, and blog-aware. Jekyll uses the
-&lt;a href=&quot;http://docs.shopify.com/themes/liquid-basics&quot;&gt;Liquid&lt;/a&gt; templating
-language and has builtin &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;
-and &lt;a href=&quot;http://en.wikipedia.org/wiki/Textile_(markup_language)&quot;&gt;Textile&lt;/a&gt; support.&lt;/p&gt;
+    &lt;span class=&quot;n&quot;&gt;screenEdgepanGesture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edges&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UIRectEdgeLeft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    
+    &lt;span class=&quot;n&quot;&gt;screenEdgepanGesture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delegate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beginBlock&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addGestureRecognizer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;screenEdgepanGesture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;It also ties in nicely to &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;2 手势开始的时候,执行开始转场动画.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;3 通过手势的进度控制动画的进度.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;4 手势结束的时候,根据加速度开判断要取消交互动画,还是完成它.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Learn more about Jekyll on their &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;website&lt;/a&gt;.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objc&quot; data-lang=&quot;objc&quot;&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;panBack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIScreenEdgePanGestureRecognizer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;pan&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;UIView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;view&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UIGestureRecognizerStateBegan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;panBegin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;YES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beginBlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSException&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;exceptionWithName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;missing Block&quot;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;reason&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;Block is require here&quot;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;userInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            
+            &lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beginBlock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+            
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UIGestureRecognizerStateChanged&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;CGFloat&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;translation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pan&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translationInView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            
+            &lt;span class=&quot;n&quot;&gt;CGFloat&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;presenter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;translation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CGRectGetWidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bounds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            
+            &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;updateInteractiveTransition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;presenter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UIGestureRecognizerStateEnded&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;panBegin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pan&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;velocityInView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;finishInteractiveTransition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cancelInteractiveTransition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            
+        &lt;span class=&quot;nl&quot;&gt;default:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;此外我们要在使用的时候也要添加一个代理方法&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objc&quot; data-lang=&quot;objc&quot;&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nullable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIViewControllerInteractiveTransitioning&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;interactionControllerForDismissal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIViewControllerAnimatedTransitioning&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;animator&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rightOutTransition&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getTransition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;上面的代码很容易理解,添加完交互的源码可以在 &lt;a href=&quot;https://github.com/jianAjian/PushAndPopTransitions/tree/InteractionAdded&quot;&gt;这里&lt;/a&gt; 下载&lt;/p&gt;
+
+&lt;h2&gt;注意:&lt;/h2&gt;
+
+&lt;p&gt;导航控制器默认被添加了屏幕侧滑手势,当模态出一个导航控制器,有可能就直接执行我们添加的手势,一下全部返回,所以应当做一些处理:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objc&quot; data-lang=&quot;objc&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#pragma mark -  gestureRecognizer delegate
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BOOL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;gestureRecognizerShouldBegin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UIGestureRecognizer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;gestureRecognizer&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;navContoller&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;isKindOfClass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UINavigationController&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UINavigationController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;navContoller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;viewControllers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;YES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;这样问题就被解决了.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://jgdu.github.io//source/presentWithPushPop2.gif&quot; alt=&quot;presentWithPushPop2&quot;&gt;&lt;/p&gt;
 </description>
-        <pubDate>Mon, 09 Jun 2014 20:32:18 +0800</pubDate>
-        <link>http://127.0.0.1:4000//jekyll/2014/06/09/so-what-is-jekyll/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000//jekyll/2014/06/09/so-what-is-jekyll/</guid>
+        <pubDate>Fri, 25 Dec 2015 23:31:19 +0800</pubDate>
+        <link>http://jgdu.github.io//objc/2015/12/25/PushAndPopTransitions/</link>
+        <guid isPermaLink="true">http://jgdu.github.io//objc/2015/12/25/PushAndPopTransitions/</guid>
         
         <category>about</category>
         
         <category>jekyll</category>
         
         
-        <category>jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>Using thumbnails</title>
-        <description>&lt;p&gt;Carte Noire is designed to start each article with an all-white image as a
-thumbnail. These are created by adding a &lt;code&gt;thumbnail&lt;/code&gt; parameter to the article&amp;#39;s
-&lt;a href=&quot;http://jekyllrb.com/docs/frontmatter/&quot;&gt;YAML frontmatter&lt;/a&gt;. This thumbnail parameter is processed in one of two ways,
-images specified in &lt;code&gt;_data/thumbnails.yml&lt;/code&gt; or using &lt;a href=&quot;http://fortawesome.github.io/Font-Awesome/&quot;&gt;Font Awesome&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2&gt;Images&lt;/h2&gt;
-
-&lt;p&gt;To use your own custom images as a thumbnail you must upload them to a web available
-location (I use &lt;a href=&quot;http://imgur.com/&quot;&gt;Imgur&lt;/a&gt;) and then you need to add the url to &lt;code&gt;_data/thumbnail.yml&lt;/code&gt;
-with an associated keyword.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;jekyll: &quot;http://i.imgur.com/aRQcGSi.png&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You then add a &lt;code&gt;thumbnail&lt;/code&gt; option to the article&amp;#39;s frontmatter and provide the keyword
-for that thumbnail.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;thumbnail: jekyll
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This allows you to re-use thumbnails across multiple articles without having to
-specify the url each time.&lt;/p&gt;
-
-&lt;h2&gt;Font Awesome&lt;/h2&gt;
-
-&lt;p&gt;If jekyll can&amp;#39;t find a corresponding image in your &lt;code&gt;thumbnail.yml&lt;/code&gt; file then it
-will assume you want to use a Font Awesome icon instead. You can find the full
-list of Font Awesome icons &lt;a href=&quot;http://fortawesome.github.io/Font-Awesome/icons/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;So for example if your article is about android and you want to use the &lt;a href=&quot;http://fortawesome.github.io/Font-Awesome/icon/android/&quot;&gt;android icon&lt;/a&gt;
-from font awesome you can just specify the following in your frontmatter.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;thumbnail: android
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Then in the future if you decide you want to use your own android icon you can just
-add it to &lt;code&gt;_data/thumbnails.yml&lt;/code&gt; which will override it for all articles using
-the android thumbnail.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 08 Jun 2014 20:32:18 +0800</pubDate>
-        <link>http://127.0.0.1:4000//jekyll/2014/06/08/using-thumbnails/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000//jekyll/2014/06/08/using-thumbnails/</guid>
-        
-        <category>thumbnails</category>
-        
-        <category>carte noire</category>
-        
-        
-        <category>jekyll</category>
+        <category>objc</category>
         
       </item>
     
