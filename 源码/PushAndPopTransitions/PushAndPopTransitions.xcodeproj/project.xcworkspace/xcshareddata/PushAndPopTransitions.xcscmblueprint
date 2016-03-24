@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "98FB71B271ACCBAA9CB4E2A1088081B9FDE96437",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FEF19B3B0E8C5D77E107A0AE86F39AB9CB0CF40E" : 0,
+    "98FB71B271ACCBAA9CB4E2A1088081B9FDE96437" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "820A8DDE-D8CF-40F2-B97E-49BB16D52303",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FEF19B3B0E8C5D77E107A0AE86F39AB9CB0CF40E" : "..",
+    "98FB71B271ACCBAA9CB4E2A1088081B9FDE96437" : "PushAndPopTransitions\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PushAndPopTransitions",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "PushAndPopTransitions.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:jianAjian\/PushAndPopTransitions.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "98FB71B271ACCBAA9CB4E2A1088081B9FDE96437"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/JGDU\/blog.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FEF19B3B0E8C5D77E107A0AE86F39AB9CB0CF40E"
+    }
+  ]
+}
