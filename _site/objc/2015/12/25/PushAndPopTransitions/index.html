@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>手把手教你实现控制器转场动画</title>
+<meta name="description" content="简洁就是力量">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>重剑无锋 大巧不工</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  
+  
+  
+  <a href="https://github.com/jianAjian" target="_new"><i class="fa fa-github-alt"></i></a>
+  
+  <a href="/feed.xml" target="_new"><i class="fa fa-rss"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <i class="fa fa-heart fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">手把手教你实现控制器转场动画</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">haolj</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">December 25, 2015</span>
+           under objc
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          5 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><p>UIKit框架为我们提供了强大的页面切换的功能,无论是导航控制器的push和pop,还是控制器的模态.在带给我们方便的同时,也允许我们定制这些转场动画.</p>
+
+<p><em><code>&lt;UIViewControllerAnimatedTransitioning&gt;</code></em>  该协议是自定义这个动画对象所必须实现的:</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">-</span><span class="p">(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="nf">transitionDuration</span><span class="p">:(</span><span class="n">id</span> <span class="o">&lt;</span><span class="n">UIViewControllerContextTransitioning</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">transitionContext</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">duringTime</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>实现上面的方法返回一个转场时间.</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">animateTransition</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n">UIViewControllerContextTransitioning</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">transitionContext_</span>
+<span class="p">{</span>
+<span class="c1">///
+</span><span class="p">}</span></code></pre></figure>
+
+<p>上面的方法就是自定义转场动画的地方. 方法中提供提供了一个 transitionContext_ 对象.该对象提供另一些对象比如源控制器,目的控制器,等等.</p>
+
+<p>就像你经常去吃羊肉泡馍,但是老板总是把馍泡得太久,变得不好吃,终于有一天你对老板说,我要自己泡,于是服务员端给你一些羊肉汤,和炸好的馍. <code>transitionContext_</code> 就是那个服务员了.</p>
+
+<p>值得注意的是,在自定义动画执行完成后,服务员不会自动清理,你要让他去要清理现场,如下:</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc">    <span class="p">[</span><span class="n">transitionContext</span> <span class="nf">completeTransition</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">animationEnded</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span> <span class="n">transitionCompleted</span>
+<span class="p">{</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>这个是动画完成后回调的一样方法.</p>
+
+<h3>一个小例子:</h3>
+
+<p>从前有个帅气的程序猿和一只产品狗生活在一起;</p>
+
+<p>突然有一天,产品狗对可爱帅气的程序猿说:</p>
+
+<p>你的程序有个bug,页面切换的时候有的时候从下面出来,有的时候从右边出来,我的狗眼都快被恍瞎了.</p>
+
+<p>一番激烈的讨论后,程序猿也觉得,可能的确是个问题,不过他了解过上面的知识,并且有自信在产品狗出院前解决这个问题.</p>
+
+<p>果然我们可爱帅气机智完美的程序猿很快解决了这个问题,这里是他的代码</p>
+
+<p>动画部分主要分为三部分,原页面移动,新页面移动,原页面变暗</p>
+
+<p>下面的代码可以再这里下载 <a href="https://github.com/jianAjian/PushAndPopTransitions/tree/master">源码</a></p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">-</span> <span class="p">(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="nf">transitionDuration</span><span class="p">:(</span><span class="n">id</span> <span class="o">&lt;</span><span class="n">UIViewControllerContextTransitioning</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">transitionContext</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">duringTime</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">animateTransition</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n">UIViewControllerContextTransitioning</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">transitionContext_</span>
+<span class="p">{</span>
+    <span class="n">transitionContext</span> <span class="o">=</span> <span class="n">transitionContext_</span><span class="p">;</span>
+    
+    <span class="n">UIView</span> <span class="o">*</span> <span class="n">containerView</span> <span class="o">=</span>   <span class="n">transitionContext</span><span class="p">.</span><span class="n">containerView</span><span class="p">;</span>
+    
+    <span class="n">UIViewController</span> <span class="o">*</span> <span class="n">fromViewContoller</span> <span class="o">=</span> <span class="p">[</span><span class="n">transitionContext</span> <span class="nf">viewControllerForKey</span><span class="p">:</span><span class="n">UITransitionContextFromViewControllerKey</span><span class="p">];</span>
+    
+    <span class="n">UIViewController</span> <span class="o">*</span> <span class="n">toViewController</span> <span class="o">=</span><span class="p">[</span><span class="n">transitionContext</span> <span class="nf">viewControllerForKey</span><span class="p">:</span><span class="n">UITransitionContextToViewControllerKey</span><span class="p">];</span>
+    <span class="n">toView</span> <span class="o">=</span><span class="p">[</span><span class="n">toViewController</span> <span class="nf">view</span><span class="p">];</span>
+    
+    <span class="n">fromView</span> <span class="o">=</span> <span class="p">[</span><span class="n">fromViewContoller</span> <span class="nf">view</span><span class="p">];</span>
+    <span class="c1">/// containerView  默认已经添加了fromView
+</span> <span class="c1">/// 只需要添加 toView
+</span>    <span class="p">[</span><span class="n">containerView</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">toView</span><span class="p">];</span>
+    
+    
+    
+    <span class="c1">///添加阴影
+</span>    <span class="n">blackShadowView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIView</span> <span class="nf">alloc</span><span class="p">]</span><span class="nf">init</span><span class="p">];</span>
+    <span class="n">blackShadowView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">colorWithRed</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">green</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">blue</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">alpha</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">];</span>
+    <span class="n">blackShadowView</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">containerView</span><span class="p">.</span><span class="n">bounds</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">fromView</span> <span class="nf">addSubview</span><span class="p">:</span><span class="n">blackShadowView</span><span class="p">];</span>
+    
+    
+    <span class="n">toView</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
+
+    
+    <span class="p">[</span><span class="n">UIView</span> <span class="nf">beginAnimations</span><span class="p">:</span><span class="nb">nil</span> <span class="nf">context</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+    <span class="c1">//执行动画
+</span>    <span class="p">[</span><span class="n">UIView</span> <span class="nf">setAnimationDuration</span><span class="p">:</span><span class="n">duringTime</span><span class="p">];</span>
+    <span class="c1">//设置代理
+</span>    <span class="p">[</span><span class="n">UIView</span> <span class="nf">setAnimationDelegate</span><span class="p">:</span><span class="n">self</span><span class="p">];</span>
+    
+    <span class="p">[</span><span class="n">UIView</span> <span class="nf">setAnimationCurve</span><span class="p">:</span><span class="n">UIViewAnimationCurveEaseInOut</span><span class="p">];</span>
+    
+    <span class="p">[</span><span class="n">UIView</span> <span class="nf">setAnimationDidStopSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nf">didStopUIAnimation</span><span class="p">:)];</span>
+    <span class="c1">///---动画1 目的视图位移
+</span>    <span class="n">toView</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
+    <span class="c1">///---动画2 源视图位移
+</span>    <span class="n">fromView</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span> <span class="o">*</span> <span class="p">(</span>  <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">.</span><span class="mi">0</span><span class="n">f</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">containerView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
+
+    <span class="c1">//---动画3 变暗
+</span>    <span class="n">blackShadowView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">colorWithRed</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">green</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">blue</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="nf">alpha</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">];</span>
+    
+    <span class="p">[</span><span class="n">UIView</span> <span class="nf">commitAnimations</span><span class="p">];</span>
+    
+<span class="p">}</span>
+
+<span class="c1">//动画结束的时候清理现场
+</span><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didStopUIAnimation</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">sender</span>
+<span class="p">{</span>
+    <span class="c1">//移除遮罩层
+</span>    <span class="p">[</span><span class="n">blackShadowView</span> <span class="nf">removeFromSuperview</span><span class="p">];</span>
+    <span class="c1">//通知转场完成 -- 清理现场
+</span>    <span class="p">[</span><span class="n">transitionContext</span> <span class="nf">completeTransition</span><span class="p">:</span><span class="o">!</span><span class="p">[</span><span class="n">transitionContext</span> <span class="nf">transitionWasCancelled</span><span class="p">]];</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>效果大概是这样子的</p>
+
+<p><img src="http://jgdu.github.io//source/presentWithPushPop1.gif" alt="presentWithPushPop1"></p>
+
+<h2>第二天</h2>
+
+<p>上午,产品经理出院了,他看了效果后觉得可以加一个类似边缘侧滑的手势用于返回,帅气的程序猿觉得很有道理,并且又将产品经理送回了医院.然后着手开发.</p>
+
+<p>控制转场动画的进度 需要一个实现  <em><code>&lt;UIPercentDrivenInteractiveTransition&gt;</code></em> 协议,来控制进度, 苹果官方建议: 可以使用实现 <em><code>&lt;UIViewControllerAnimatedTransitioning&gt;</code></em> 协议的那个类.并且提供了一个名为 <code>UIPercentDrivenInteractiveTransition</code>  的类 , 它已经实现了该协议. </p>
+
+<p><code>UIPercentDrivenInteractiveTransition</code> 对UI动画支持的很好, 当你想要使用CA动画的话,你可能需要使用 <a href="https://github.com/stringcode86/UIPercentDrivenInteractiveTransitionWithCABasicAnimation/blob/master/InteractiveTransition/SCPercentDrivenInteractiveTransition.h">SCPercentDrivenInteractiveTransition</a>,</p>
+
+<p>ok  将刚才实现的类的父类改为 <code>:UIPercentDrivenInteractiveTransition</code> </p>
+
+<p>接下来大概是下面这些步骤:</p>
+
+<ul>
+<li>1 在上面的视图上添加一个手势.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="c1">///绑定一个手势
+</span><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">bindPanGestureWithView</span><span class="p">:(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="nf">WithBeginBlock</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">block</span><span class="p">;</span>
+<span class="p">{</span>
+    <span class="n">navContoller</span> <span class="o">=</span> <span class="p">(</span><span class="n">UIViewController</span> <span class="o">*</span><span class="p">)[</span><span class="n">view</span> <span class="nf">nextResponder</span><span class="p">];</span>
+    <span class="n">UIScreenEdgePanGestureRecognizer</span> <span class="o">*</span> <span class="n">screenEdgepanGesture</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIScreenEdgePanGestureRecognizer</span> <span class="nf">alloc</span><span class="p">]</span><span class="nf">initWithTarget</span><span class="p">:</span><span class="n">self</span> <span class="nf">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nf">panBack</span><span class="p">:)];</span>
+    
+    <span class="n">screenEdgepanGesture</span><span class="p">.</span><span class="n">edges</span> <span class="o">=</span> <span class="n">UIRectEdgeLeft</span><span class="p">;</span>
+    
+    
+    <span class="n">screenEdgepanGesture</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+    
+    <span class="n">self</span><span class="p">.</span><span class="n">beginBlock</span> <span class="o">=</span> <span class="n">block</span><span class="p">;</span>
+    
+    <span class="p">[</span><span class="n">view</span> <span class="nf">addGestureRecognizer</span><span class="p">:</span><span class="n">screenEdgepanGesture</span><span class="p">];</span>
+    
+<span class="p">}</span></code></pre></figure>
+
+<ul>
+<li><p>2 手势开始的时候,执行开始转场动画.</p></li>
+<li><p>3 通过手势的进度控制动画的进度.</p></li>
+<li><p>4 手势结束的时候,根据加速度开判断要取消交互动画,还是完成它.</p></li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">panBack</span><span class="p">:(</span><span class="n">UIScreenEdgePanGestureRecognizer</span> <span class="o">*</span><span class="p">)</span><span class="nv">pan</span>
+<span class="p">{</span>
+    
+    <span class="n">UIView</span> <span class="o">*</span> <span class="n">view</span> <span class="o">=</span> <span class="n">pan</span><span class="p">.</span><span class="n">view</span><span class="p">;</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">pan</span><span class="p">.</span><span class="n">state</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">UIGestureRecognizerStateBegan</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="n">panBegin</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+            
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">self</span><span class="p">.</span><span class="n">beginBlock</span><span class="p">)</span> <span class="p">{</span>
+                <span class="p">[</span><span class="n">NSException</span> <span class="nf">exceptionWithName</span><span class="p">:</span><span class="s">@"missing Block"</span> <span class="nf">reason</span><span class="p">:</span><span class="s">@"Block is require here"</span> <span class="nf">userInfo</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+            <span class="p">}</span>
+            
+            <span class="n">self</span><span class="p">.</span><span class="n">beginBlock</span><span class="p">();</span>
+            
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">case</span> <span class="n">UIGestureRecognizerStateChanged</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="n">CGFloat</span> <span class="n">translation</span> <span class="o">=</span> <span class="p">[</span><span class="n">pan</span> <span class="nf">translationInView</span><span class="p">:</span><span class="n">view</span><span class="p">].</span><span class="n">x</span><span class="p">;</span>
+            
+            <span class="n">CGFloat</span> <span class="n">presenter</span> <span class="o">=</span> <span class="n">translation</span><span class="o">/</span><span class="n">CGRectGetWidth</span><span class="p">(</span><span class="n">view</span><span class="p">.</span><span class="n">bounds</span><span class="p">);</span>
+            
+            <span class="p">[</span><span class="n">self</span> <span class="nf">updateInteractiveTransition</span><span class="p">:</span><span class="n">presenter</span><span class="p">];</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">case</span> <span class="n">UIGestureRecognizerStateEnded</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="n">panBegin</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+            
+            <span class="k">if</span> <span class="p">([</span><span class="n">pan</span> <span class="nf">velocityInView</span><span class="p">:</span><span class="n">view</span><span class="p">].</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="p">[</span><span class="n">self</span> <span class="nf">finishInteractiveTransition</span><span class="p">];</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="p">[</span><span class="n">self</span> <span class="nf">cancelInteractiveTransition</span><span class="p">];</span>
+            <span class="p">}</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+            
+        <span class="nl">default:</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>此外我们要在使用的时候也要添加一个代理方法</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">id</span> <span class="o">&lt;</span><span class="n">UIViewControllerInteractiveTransitioning</span><span class="o">&gt;</span><span class="p">)</span><span class="nf">interactionControllerForDismissal</span><span class="p">:(</span><span class="n">id</span> <span class="o">&lt;</span><span class="n">UIViewControllerAnimatedTransitioning</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">animator</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">rightOutTransition</span> <span class="nf">getTransition</span><span class="p">];</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>上面的代码很容易理解,添加完交互的源码可以在 <a href="https://github.com/jianAjian/PushAndPopTransitions/tree/InteractionAdded">这里</a> 下载</p>
+
+<h2>注意:</h2>
+
+<p>导航控制器默认被添加了屏幕侧滑手势,当模态出一个导航控制器,有可能就直接执行我们添加的手势,一下全部返回,所以应当做一些处理:</p>
+
+<figure class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark -  gestureRecognizer delegate
+</span><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">gestureRecognizerShouldBegin</span><span class="p">:(</span><span class="n">UIGestureRecognizer</span> <span class="o">*</span><span class="p">)</span><span class="nv">gestureRecognizer</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">navContoller</span> <span class="nf">isKindOfClass</span><span class="p">:[</span><span class="n">UINavigationController</span> <span class="nf">class</span><span class="p">]]</span><span class="o">&amp;&amp;</span><span class="p">((</span><span class="n">UINavigationController</span> <span class="o">*</span><span class="p">)</span><span class="n">navContoller</span><span class="p">).</span><span class="n">viewControllers</span><span class="p">.</span><span class="n">count</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>这样问题就被解决了.</p>
+
+<p><img src="http://jgdu.github.io//source/presentWithPushPop2.gif" alt="presentWithPushPop2"></p>
+</span>
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            about, jekyll
+          </small>
+        </div>
+        
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/">@</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "jianAjian"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    感谢作者 <i class="fa fa-heart"></i><a href="https://twitter.com/_JacobTomlinson">Jacob Tomlinson</a>提供该博客模板
+  </div>
+  <div class="col-md-6">
+    <a href="https://github.com/jacobtomlinson/carte-noire">模板地址</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20365477-4']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>
