@@ -1,6 +1,14 @@
 [
   
   {
+    "title"    : "NSLayoutManager",
+    "category" : "",
+    "tags"     : "TextKit, LayoutManager",
+    "url"      : "/objc/2016/04/24/NSLayoutManager/",
+    "date"     : "2016-04-24 23:31:19 +0800"
+    } ,
+    
+  {
     "title"    : "手把手教你实现控制器转场动画",
     "category" : "",
     "tags"     : "about, jekyll",

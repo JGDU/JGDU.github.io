@@ -3,11 +3,30 @@
   <channel>
     <title>重剑无锋 大巧不工</title>
     <description>简洁就是力量</description>
-    <link>http://jgdu.github.io//</link>
-    <atom:link href="http://jgdu.github.io//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 20 Apr 2016 18:15:05 +0800</pubDate>
-    <lastBuildDate>Wed, 20 Apr 2016 18:15:05 +0800</lastBuildDate>
+    <link>http://127.0.0.1:4000//</link>
+    <atom:link href="http://127.0.0.1:4000//feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Mon, 25 Apr 2016 11:05:04 +0800</pubDate>
+    <lastBuildDate>Mon, 25 Apr 2016 11:05:04 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>NSLayoutManager</title>
+        <description>&lt;p&gt;别傻了,我才不是写给人类看的&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000//source/NSLayoutManager_m.png&quot; alt=&quot;NSLayoutManager_MindNote&quot;&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 24 Apr 2016 23:31:19 +0800</pubDate>
+        <link>http://127.0.0.1:4000//objc/2016/04/24/NSLayoutManager/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000//objc/2016/04/24/NSLayoutManager/</guid>
+        
+        <category>TextKit</category>
+        
+        <category>LayoutManager</category>
+        
+        
+        <category>objc</category>
+        
+      </item>
     
       <item>
         <title>手把手教你实现控制器转场动画</title>
@@ -123,7 +142,7 @@
 
 &lt;p&gt;效果大概是这样子的&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://jgdu.github.io//source/presentWithPushPop1.gif&quot; alt=&quot;presentWithPushPop1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000//source/presentWithPushPop1.gif&quot; alt=&quot;presentWithPushPop1&quot;&gt;&lt;/p&gt;
 
 &lt;h2&gt;第二天&lt;/h2&gt;
 
@@ -234,11 +253,11 @@
 
 &lt;p&gt;这样问题就被解决了.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://jgdu.github.io//source/presentWithPushPop2.gif&quot; alt=&quot;presentWithPushPop2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000//source/presentWithPushPop2.gif&quot; alt=&quot;presentWithPushPop2&quot;&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 25 Dec 2015 23:31:19 +0800</pubDate>
-        <link>http://jgdu.github.io//objc/2015/12/25/PushAndPopTransitions/</link>
-        <guid isPermaLink="true">http://jgdu.github.io//objc/2015/12/25/PushAndPopTransitions/</guid>
+        <link>http://127.0.0.1:4000//objc/2015/12/25/PushAndPopTransitions/</link>
+        <guid isPermaLink="true">http://127.0.0.1:4000//objc/2015/12/25/PushAndPopTransitions/</guid>
         
         <category>about</category>
         
