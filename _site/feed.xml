@@ -3,44 +3,62 @@
   <channel>
     <title>重剑无锋 大巧不工</title>
     <description>简洁就是力量</description>
-    <link>http://127.0.0.1:4000//</link>
-    <atom:link href="http://127.0.0.1:4000//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 05 May 2016 17:28:46 +0800</pubDate>
-    <lastBuildDate>Thu, 05 May 2016 17:28:46 +0800</lastBuildDate>
+    <link>http://jgdu.github.io//</link>
+    <atom:link href="http://jgdu.github.io//feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 06 Jul 2016 18:29:40 +0800</pubDate>
+    <lastBuildDate>Wed, 06 Jul 2016 18:29:40 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>发现一坨陌生代码,请处理</title>
-        <description>&lt;p&gt;或许通过一个例子可以加深这次思考&lt;/p&gt;
+        <title>jekyll相关</title>
+        <description>&lt;p&gt;关于如何使用jekyll建站,已经有大量优秀的文章,这里不再介绍.&lt;/p&gt;
 
-&lt;h3&gt;货物中转站:&lt;/h3&gt;
+&lt;p&gt;本文主要记录一些笔者遇到的小坑,没事可以翻看.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000//source/zhongzhuanzhan.png&quot; alt=&quot;中转站&quot;&gt;&lt;/p&gt;
+&lt;h2&gt;端口被占用&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;Configuration file: ./_config.yml
+            Source: ./
+       Destination: /Users/HAOLIANGJIAN/Desktop/博客工作空间/金钩钓鱼/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+                    done in 0.345 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;按照提示 &lt;code&gt;jekyll serve --trace&lt;/code&gt; 获取详细信息&lt;/p&gt;
 
-&lt;p&gt;新乡有个货物中转站,假如有一天你从它旁边路过,你会看到很多场景,有人在包装箱子,有人在拆箱子,有人把货物装车,有人把货物从车上卸下来,有人根据编号把货物放到架子上.但这一切突然和你有关了,因为你突然想要把这个中转站收购下来并自己管理.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;nl&quot;&gt;bogon:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;金钩钓鱼&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HAOLIANGJIAN&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serve&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trace&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Configuration&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HAOLIANGJIAN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Desktop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;博客工作空间&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;金钩钓鱼&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yml&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HAOLIANGJIAN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Desktop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;博客工作空间&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;金钩钓鱼&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;Destination&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HAOLIANGJIAN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Desktop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;博客工作空间&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;金钩钓鱼&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_site&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;Incremental&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Enable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;incremental&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Generating&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; 
+                    &lt;span class=&quot;n&quot;&gt;done&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;357&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seconds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;Auto&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;regeneration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enabled&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HAOLIANGJIAN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Desktop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;博客工作空间&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;金钩钓鱼&#39;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Configuration&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HAOLIANGJIAN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Desktop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;博客工作空间&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;金钩钓鱼&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yml&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Frameworks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Ruby&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;framework&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Versions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webrick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;85&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Address&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;already&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Errno&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EADDRINUSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Frameworks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Ruby&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;framework&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Versions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webrick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;85&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Frameworks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Ruby&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;framework&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Versions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webrick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;85&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;create_listeners&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Frameworks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Ruby&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;framework&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Versions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webrick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;82&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;虽然到处看可以看到很多场景,但是并不能理解到底中转站是怎么运作的.
-就像你在代码中看到好多函数和变量,但你还是不知道如何管理它,使用它.&lt;/p&gt;
+&lt;p&gt;可以看出 &lt;code&gt;Address already in use - bind(2)&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;不过你可以大致知道这个中转站是干什么的,把货物从四面八方聚集过来,通过一些处理后再发出去.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;n&quot;&gt;lsof&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i4TCP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;##&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;查找占用的&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PID&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;kill&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8688&lt;/span&gt;   &lt;span class=&quot;err&quot;&gt;##&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kill&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;你也可以大致知道每个人在干什么,通过观察(对代码的理解),老王负责记录一些东西,但是你不知道他记录的什么,小李剪一些绳子,阿福吆喝着一些吊子,天呐,有几十号人在干着你大致知道的事情.你的脑子虽然有一些猜测和线索但是仍是一团乱麻.&lt;/p&gt;
+&lt;p&gt;重新&lt;code&gt;jekyll serve&lt;/code&gt;即可&lt;/p&gt;
 
-&lt;h3&gt;开会,点名:&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000//source/dianming.png&quot; alt=&quot;dianming&quot;&gt;&lt;/p&gt;
-
-&lt;p&gt;还好你接受过义务教育,脑袋不至于太笨,你把员工都聚集在一起,指着一个货物说(数据驱动),这个货物经过谁的手上时,告诉我你是怎么处理它的(log),老王说,我把她放到指定的架子上,小李说我通过订单查到订单A中需要这个,张三说我给它换个包装.....原来是这样啊.&lt;/p&gt;
-
-&lt;p&gt;终于明白了原理,恭喜你可以放手改进和管理它了.&lt;/p&gt;
+&lt;h2&gt;invalid byte sequence in UTF-8&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;  Liquid Exception: Liquid error: invalid byte sequence in UTF-8 in _layouts/post.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;造成这个的原因是因为在文中使用了&lt;code&gt;gmz@skh.whu.edu.cn&lt;/code&gt;, 放入代码块中即可&lt;/p&gt;
 </description>
-        <pubDate>Wed, 04 May 2016 23:31:19 +0800</pubDate>
-        <link>http://127.0.0.1:4000//objc/2016/05/04/moshengdaima/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000//objc/2016/05/04/moshengdaima/</guid>
+        <pubDate>Sun, 12 Jun 2016 23:31:19 +0800</pubDate>
+        <link>http://jgdu.github.io//objc/2016/06/12/jekyll/</link>
+        <guid isPermaLink="true">http://jgdu.github.io//objc/2016/06/12/jekyll/</guid>
         
         <category>mind</category>
         
-        <category>think</category>
+        <category>jekyll</category>
         
         
         <category>objc</category>
@@ -48,14 +66,218 @@
       </item>
     
       <item>
+        <title>XMPP之阻止和过滤通讯进阶</title>
+        <description>&lt;p&gt;本文内容参考自&lt;em&gt;《XMPPDefinitiveGuild》&lt;/em&gt;,该书通俗易懂,值得一读.
+如果有兴趣可以&lt;a href=&quot;tencent://message/?Menu=yes&amp;amp;uin=295938867&amp;amp;Site=&amp;amp;Service=201&amp;amp;sigT=...&quot;&gt;联系我&lt;/a&gt;索要.&lt;/p&gt;
+
+&lt;h2&gt;更强大的阻拦&lt;/h2&gt;
+
+&lt;p&gt;接前篇,现在假设你发现一个规律: 当F看到你在线就给发一些有的没的信息:来自某西兰的红酒半价了,某韩玻尿酸只要998.
+于是你向他隐藏了你的出席状态,但是你又需要必要的时候向他发送一些信息询问他什么时候还你钱.
+所以你可能需要隐私协议&lt;full-featured&gt;中的一种更高级的隐私列表.&lt;/p&gt;
+
+&lt;p&gt;例如&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;list&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mylist&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;item&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;jid&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gmz@skh.whu.edu.cn&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;deny&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;order=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;iq/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;presence-out/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/item&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;item&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;jid&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gmz@skh.whu.edu.cn&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;allow&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;order=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;message/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/item&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;item&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;allow&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;order=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;3&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/list&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;使用XMPPframeWork&lt;/h2&gt;
+
+&lt;p&gt;xmppFramework提供了一个XMPPPrivacy类供我们便捷的操作阻拦功能,如下&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objc&quot; data-lang=&quot;objc&quot;&gt;
+    &lt;span class=&quot;c1&quot;&gt;//加载原来的黑名单规则
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;NSArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;originList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;privacy&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;listWithName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;Black_List&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;NSMutableArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;muArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[@[]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;mutableCopy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSXMLElement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;originList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;muArray&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;NSXMLElement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item_new&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;XMPPPrivacy&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;privacyItemWithType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;jid&quot;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bare&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;deny&quot;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//    [XMPPPrivacy blockMessages: item_new];//希望可以接受消息
+&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;XMPPPrivacy&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;blockIQs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item_new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//    [XMPPPrivacy blockPresenceIn: item_new];
+&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;XMPPPrivacy&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;blockPresenceOut&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item_new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//不希望发送状态给对方
+&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;muArray&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item_new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;privacy&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setListWithName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;Black_List&quot;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;muArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;privacy&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setActiveListName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;Black_List&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;setListWithName: items:&lt;/code&gt; 设置规则列表&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;setActiveListName:&lt;/code&gt; 激活列表&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一般情况下,需要在用户身份验证通过后,去激活列表&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objc&quot; data-lang=&quot;objc&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//验证通过
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;xmppStreamDidAuthenticate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;XMPPStream&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;privacy&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setActiveListName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;Black_List&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;goOnline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;结果如下&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://jgdu.github.io//source/xmppBlock.gif&quot; alt=&quot;xmppBlock&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;可以看出通过这里只是不让对方查阅你的出席信息,所以只有对方下次登录,你才能从他列表中消失&lt;/p&gt;
+</description>
+        <pubDate>Sun, 12 Jun 2016 23:31:19 +0800</pubDate>
+        <link>http://jgdu.github.io//xmpp/2016/06/12/XMPPBlock2/</link>
+        <guid isPermaLink="true">http://jgdu.github.io//xmpp/2016/06/12/XMPPBlock2/</guid>
+        
+        <category>mind</category>
+        
+        <category>think</category>
+        
+        
+        <category>XMPP</category>
+        
+      </item>
+    
+      <item>
+        <title>XMPP之阻止和过滤通讯基础篇</title>
+        <description>&lt;p&gt;本文内容参考自&lt;em&gt;《XMPPDefinitiveGuild》&lt;/em&gt;,该书通俗易懂,值得一读.
+如果有兴趣可以&lt;a href=&quot;tencent://message/?Menu=yes&amp;amp;uin=295938867&amp;amp;Site=&amp;amp;Service=201&amp;amp;sigT=...&quot;&gt;联系我&lt;/a&gt;索要.&lt;/p&gt;
+
+&lt;h2&gt;一个简单方法&lt;/h2&gt;
+
+&lt;h3&gt;block状态&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;iq&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;from=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;suke@skh.whu.edu.cn/Psi&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;yu4er81v&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;to=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;suke@skh.whu.edu.cn&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;set&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;block&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;urn:xmpp:blocking&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; //注意`xmpp` 为小写
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;item&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;jid=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gmz@skh.whu.edu.cn&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/block&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/iq&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;注:在此假设你已经有了一定的关于xmpp的基础知识&lt;/em&gt; &lt;/p&gt;
+
+&lt;p&gt;这里只用一个使用一个block的IQ-set 将jid为&lt;code&gt;gmz@skh.whu.edu.cn&lt;/code&gt;的好友 表示为block状态
+此时意味着啥呢?&lt;/p&gt;
+
+&lt;p&gt;暂且假设&lt;code&gt;gmz@skh.whu.edu.cn&lt;/code&gt;是你的那个超级鸡血的微商朋友-F.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;首先当你对 F 添加了阻止规则,你的服务器发送出一个不可用的出席包,以便F以为你是离线。从那时起,任何时候 你更新你的出席(例如,恢复在线),相关的出席节不会被发送给 F(似乎你永远不再登陆)。&lt;/li&gt;
+&lt;li&gt;其次,你的服务器需要确认F不能用任何方式找出你在线。这意味着你的服务器对进来的 IQ-get 或 IQ-set 使用&lt;service-unavailable/&gt;错误应答,忽略进来的任何 &lt;message/&gt;消息(或再次返回一个&lt;service-unavailable/&gt;错误),并且放弃任何进来的 &lt;presence/&gt;节。&lt;/li&gt;
+&lt;li&gt;最后,您的服务器需要防止你做一些愚蠢的事情,比如向F发送一个消息或 IQ 请求,这样它会对任何发送给 &lt;code&gt;gmz@skh.whu.edu.cn&lt;/code&gt;向外的节回复一个&lt;not-acceptable/&gt; 错误。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;除此之外你也可以阻拦完整的域名,如某个服务器&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;iq&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;from=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;suke@skh.whu.edu.cn&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;i3s91xc3&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;to=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;skh.whu.edu.cn&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//注意这里&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;set&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;block&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;urn:XMPP:blocking&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;item&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;jid=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;spammers.lit&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/block&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/iq&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;设置为非block状态&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;iq&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;from=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;suke@skh.whu.edu.cn/Psi&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ng23h57w&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;to=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;suke@skh.whu.edu.cn&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;set&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;unblock&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;urn:XMPP:blocking&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;item&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;jid=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gmz@skh.whu.edu.cn&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/unblock&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/iq&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;同理,设置为unblock状态将会把对应items从你的阻拦列表中剔除.&lt;/p&gt;
+
+&lt;h3&gt;查看阻拦列表&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;iq&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;from=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;suke@skh.whu.edu.cn&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;i3s91xc3&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;to=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;skh.whu.edu.cn&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;set&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;block&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;urn:XMPP:blocking&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;item&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;jid=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;spammers.lit&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/block&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/iq&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;获取后如下&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;iq&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;from=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;suke@skh.whu.edu.cn&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;92h1nv8f&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;to=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;suke@skh.whu.edu.cn/Psi&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;result&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;blocklist&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;urn:XMPP:blocking&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;item&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;jid=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gmz@skh.whu.edu.cn&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;item&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;jid=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;spammers.lit&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/blocklist&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/iq&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;在OC中使用XMPPFrameWork&lt;/h2&gt;
+
+&lt;p&gt;XMPP尽量减轻客户端复杂度,
+而XMPPFrameWork又降低了开发难度,所以这里只是简单介绍使用, blockUser为例.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-objc&quot; data-lang=&quot;objc&quot;&gt;&lt;span class=&quot;k&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;blockUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;XMPPJID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;user&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;NSXMLElement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSXMLElement&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;elementWithName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;block&quot;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;urn:xmpp:blocking&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;NSXMLElement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NSXMLElement&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;elementWithName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;item&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addAttributeWithName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;jid&quot;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;stringValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bare&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;XMPPStream&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xmppStream&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;xmppStream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;XMPPIQ&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iq&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;XMPPIQ&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;iqWithType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&quot;set&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iq&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xmppStream&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sendElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;:) &lt;/p&gt;
+</description>
+        <pubDate>Sun, 12 Jun 2016 23:31:19 +0800</pubDate>
+        <link>http://jgdu.github.io//react/native/2016/06/12/XMPPBlock/</link>
+        <guid isPermaLink="true">http://jgdu.github.io//react/native/2016/06/12/XMPPBlock/</guid>
+        
+        <category>mind</category>
+        
+        <category>think</category>
+        
+        
+        <category>React</category>
+        
+        <category>Native</category>
+        
+      </item>
+    
+      <item>
+        <title>React Native 之 Redux</title>
+        <description>&lt;h2&gt;Redux的使用与说明&lt;/h2&gt;
+</description>
+        <pubDate>Sun, 12 Jun 2016 23:31:19 +0800</pubDate>
+        <link>http://jgdu.github.io//react/native/2016/06/12/RNRedux/</link>
+        <guid isPermaLink="true">http://jgdu.github.io//react/native/2016/06/12/RNRedux/</guid>
+        
+        <category>mind</category>
+        
+        <category>think</category>
+        
+        
+        <category>React</category>
+        
+        <category>Native</category>
+        
+      </item>
+    
+      <item>
         <title>NSLayoutManager</title>
         <description>&lt;p&gt;别傻了,我才不是写给人类看的&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000//source/NSLayoutManager_m.png&quot; alt=&quot;NSLayoutManager_MindNote&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://jgdu.github.io//source/NSLayoutManager_m.png&quot; alt=&quot;NSLayoutManager_MindNote&quot;&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 24 Apr 2016 23:31:19 +0800</pubDate>
-        <link>http://127.0.0.1:4000//objc/2016/04/24/NSLayoutManager/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000//objc/2016/04/24/NSLayoutManager/</guid>
+        <link>http://jgdu.github.io//objc/2016/04/24/NSLayoutManager/</link>
+        <guid isPermaLink="true">http://jgdu.github.io//objc/2016/04/24/NSLayoutManager/</guid>
         
         <category>TextKit</category>
         
@@ -180,7 +402,7 @@
 
 &lt;p&gt;效果大概是这样子的&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000//source/presentWithPushPop1.gif&quot; alt=&quot;presentWithPushPop1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://jgdu.github.io//source/presentWithPushPop1.gif&quot; alt=&quot;presentWithPushPop1&quot;&gt;&lt;/p&gt;
 
 &lt;h2&gt;第二天&lt;/h2&gt;
 
@@ -291,11 +513,11 @@
 
 &lt;p&gt;这样问题就被解决了.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://127.0.0.1:4000//source/presentWithPushPop2.gif&quot; alt=&quot;presentWithPushPop2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://jgdu.github.io//source/presentWithPushPop2.gif&quot; alt=&quot;presentWithPushPop2&quot;&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 25 Dec 2015 23:31:19 +0800</pubDate>
-        <link>http://127.0.0.1:4000//objc/2015/12/25/PushAndPopTransitions/</link>
-        <guid isPermaLink="true">http://127.0.0.1:4000//objc/2015/12/25/PushAndPopTransitions/</guid>
+        <link>http://jgdu.github.io//objc/2015/12/25/PushAndPopTransitions/</link>
+        <guid isPermaLink="true">http://jgdu.github.io//objc/2015/12/25/PushAndPopTransitions/</guid>
         
         <category>about</category>
         

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jekyll相关</title>
+<meta name="description" content="简洁就是力量">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>重剑无锋 大巧不工</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  
+  
+  
+  <a href="https://github.com/jianAjian" target="_new"><i class="fa fa-github-alt"></i></a>
+  
+  <a href="/feed.xml" target="_new"><i class="fa fa-rss"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <i class="fa fa-heart fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">jekyll相关</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">haolj</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">June 12, 2016</span>
+           under objc
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          2 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><p>关于如何使用jekyll建站,已经有大量优秀的文章,这里不再介绍.</p>
+
+<p>本文主要记录一些笔者遇到的小坑,没事可以翻看.</p>
+
+<h2>端口被占用</h2>
+<div class="highlight"><pre><code class="language-" data-lang="">Configuration file: ./_config.yml
+            Source: ./
+       Destination: /Users/HAOLIANGJIAN/Desktop/博客工作空间/金钩钓鱼/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+                    done in 0.345 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.
+</code></pre></div>
+<p>按照提示 <code>jekyll serve --trace</code> 获取详细信息</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">bogon:</span><span class="err">金钩钓鱼</span> <span class="n">HAOLIANGJIAN</span><span class="err">$</span> <span class="n">jekyll</span> <span class="n">serve</span> <span class="o">--</span><span class="n">trace</span>
+<span class="n">Configuration</span> <span class="n">file</span><span class="o">:</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">HAOLIANGJIAN</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="err">博客工作空间</span><span class="o">/</span><span class="err">金钩钓鱼</span><span class="o">/</span><span class="n">_config</span><span class="p">.</span><span class="n">yml</span>
+            <span class="n">Source</span><span class="o">:</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">HAOLIANGJIAN</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="err">博客工作空间</span><span class="o">/</span><span class="err">金钩钓鱼</span>
+       <span class="n">Destination</span><span class="o">:</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">HAOLIANGJIAN</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="err">博客工作空间</span><span class="o">/</span><span class="err">金钩钓鱼</span><span class="o">/</span><span class="n">_site</span>
+ <span class="n">Incremental</span> <span class="n">build</span><span class="o">:</span> <span class="n">disabled</span><span class="p">.</span> <span class="n">Enable</span> <span class="n">with</span> <span class="o">--</span><span class="n">incremental</span>
+      <span class="n">Generating</span><span class="p">...</span> 
+                    <span class="n">done</span> <span class="n">in</span> <span class="mi">0</span><span class="p">.</span><span class="mi">357</span> <span class="n">seconds</span><span class="p">.</span>
+ <span class="n">Auto</span><span class="o">-</span><span class="n">regeneration</span><span class="o">:</span> <span class="n">enabled</span> <span class="k">for</span> <span class="err">'</span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">HAOLIANGJIAN</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="err">博客工作空间</span><span class="o">/</span><span class="err">金钩钓鱼'</span>
+<span class="n">Configuration</span> <span class="n">file</span><span class="o">:</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">HAOLIANGJIAN</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="err">博客工作空间</span><span class="o">/</span><span class="err">金钩钓鱼</span><span class="o">/</span><span class="n">_config</span><span class="p">.</span><span class="n">yml</span>
+<span class="o">/</span><span class="n">System</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Ruby</span><span class="p">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="n">webrick</span><span class="o">/</span><span class="n">utils</span><span class="p">.</span><span class="n">rb</span><span class="o">:</span><span class="mi">85</span><span class="o">:</span><span class="n">in</span> <span class="err">`</span><span class="n">initialize</span><span class="err">'</span><span class="o">:</span> <span class="n">Address</span> <span class="n">already</span> <span class="n">in</span> <span class="n">use</span> <span class="o">-</span> <span class="n">bind</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="n">Errno</span><span class="o">::</span><span class="n">EADDRINUSE</span><span class="p">)</span>
+    <span class="n">from</span> <span class="o">/</span><span class="n">System</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Ruby</span><span class="p">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="n">webrick</span><span class="o">/</span><span class="n">utils</span><span class="p">.</span><span class="n">rb</span><span class="o">:</span><span class="mi">85</span><span class="o">:</span><span class="n">in</span> <span class="err">`</span><span class="n">new</span><span class="err">'</span>
+    <span class="n">from</span> <span class="o">/</span><span class="n">System</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Ruby</span><span class="p">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="n">webrick</span><span class="o">/</span><span class="n">utils</span><span class="p">.</span><span class="n">rb</span><span class="o">:</span><span class="mi">85</span><span class="o">:</span><span class="n">in</span> <span class="err">`</span><span class="n">block</span> <span class="n">in</span> <span class="n">create_listeners</span><span class="err">'</span>
+    <span class="n">from</span> <span class="o">/</span><span class="n">System</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Ruby</span><span class="p">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="n">webrick</span><span class="o">/</span><span class="n">utils</span><span class="p">.</span><span class="n">rb</span><span class="o">:</span><span class="mi">82</span><span class="o">:</span><span class="n">in</span> <span class="err">`</span><span class="n">each</span><span class="err">'</span></code></pre></figure>
+
+<p>可以看出 <code>Address already in use - bind(2)</code></p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">lsof</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">i4TCP</span><span class="o">:</span><span class="mi">4000</span>  <span class="err">##</span> <span class="err">查找占用的</span><span class="n">PID</span>
+<span class="n">kill</span> <span class="o">-</span><span class="mi">9</span> <span class="mi">8688</span>   <span class="err">##</span><span class="n">kill</span> </code></pre></figure>
+
+<p>重新<code>jekyll serve</code>即可</p>
+
+<h2>invalid byte sequence in UTF-8</h2>
+<div class="highlight"><pre><code class="language-" data-lang="">  Liquid Exception: Liquid error: invalid byte sequence in UTF-8 in _layouts/post.html
+</code></pre></div>
+<p>造成这个的原因是因为在文中使用了<code>gmz@skh.whu.edu.cn</code>, 放入代码块中即可</p>
+</span>
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            mind, jekyll
+          </small>
+        </div>
+        
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/">@</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "jianAjian"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    感谢作者 <i class="fa fa-heart"></i><a href="https://twitter.com/_JacobTomlinson">Jacob Tomlinson</a>提供该博客模板
+  </div>
+  <div class="col-md-6">
+    <a href="https://github.com/jacobtomlinson/carte-noire">模板地址</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20365477-4']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>
