@@ -1,6 +1,30 @@
 [
   
   {
+    "title"    : "XMPPFrameWork之XMPPIDTracker",
+    "category" : "",
+    "tags"     : "mind, think",
+    "url"      : "/xmppidtracker/2016/07/06/XMPPIDTracker/",
+    "date"     : "2016-07-06 23:31:19 +0800"
+    } ,
+    
+  {
+    "title"    : "XMPP之服务发现",
+    "category" : "",
+    "tags"     : "mind, think",
+    "url"      : "/xmpp/2016/07/06/XMPPFWFX/",
+    "date"     : "2016-07-06 23:31:19 +0800"
+    } ,
+    
+  {
+    "title"    : "XMPPFrameWork之GCDMulticastDelegate",
+    "category" : "",
+    "tags"     : "mind, think",
+    "url"      : "/xmppframework/2016/07/06/GCDMulticastDelegate/",
+    "date"     : "2016-07-06 23:31:19 +0800"
+    } ,
+    
+  {
     "title"    : "jekyll相关",
     "category" : "",
     "tags"     : "mind, jekyll",

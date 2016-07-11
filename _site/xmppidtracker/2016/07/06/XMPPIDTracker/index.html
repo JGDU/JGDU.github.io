@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XMPPFrameWork之XMPPIDTracker</title>
+<meta name="description" content="简洁就是力量">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>重剑无锋 大巧不工</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  
+  
+  
+  <a href="https://github.com/jianAjian" target="_new"><i class="fa fa-github-alt"></i></a>
+  
+  <a href="/feed.xml" target="_new"><i class="fa fa-rss"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <i class="fa fa-heart fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">XMPPFrameWork之XMPPIDTracker</h1>
+
+      <div class="author">
+        <small><i>
+          
+          by
+          <span itemprop="author">
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">haolj</span>
+            </span>
+            
+          </span>
+          
+          on <span itemprop="datePublished" content="2014-08-28">July 6, 2016</span>
+           under XMPPIDTracker
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          3 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><p>在XMPP常见的操作是发送某种拥有唯一ID的请求，并等待响应回来。</p>
+
+<p>最常见的例子是发送拥有type=&#39;get&#39;的IQ，然后等待响应。</p>
+
+<p>为了正确处理响应，该ID必须存储。如果有多个查询和/或不同类型的查询发出，然后对反应的适当处理的信息也必须存储。</p>
+
+<p>这可以通过相应的selector，或者一个block来完成。</p>
+
+<p>另外人们需要设置一个超时时间.
+ 
+该类提供支持以简化与此共同操作相关联的任务。</p>
+
+<p>本质上，它提供了以下内容：</p>
+
+<ul>
+<li>一本字典，其中唯一的ID​​是Key，而所需的跟​​踪信息是Object</li>
+<li>一个可选的计时器射击在超时</li>
+</ul>
+
+<p>类被设计成柔性的,您可以提供要调用的 target/selector或block。
+此外，还可以使用基本的跟踪信息，或者你可以扩展它来满足您的需求。</p>
+
+<p>用几个实施例来说明</p>
+
+<h4>---- EXAMPLE 1 - SIMPLE TRACKING WITH TARGET / SELECTOR ----</h4>
+<div class="highlight"><pre><code class="language-objc" data-lang="objc">
+<span class="n">XMPPIQ</span> <span class="o">*</span><span class="n">iq</span> <span class="o">=</span> <span class="p">...</span>
+<span class="p">[</span><span class="n">iqTracker</span> <span class="nf">addID</span><span class="p">:[</span><span class="n">iq</span> <span class="nf">elementID</span><span class="p">]</span> <span class="nf">target</span><span class="p">:</span><span class="n">self</span> <span class="nf">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nf">processBookQuery</span><span class="p">:</span><span class="nf">withInfo</span><span class="p">:)</span> <span class="nf">timeout</span><span class="p">:</span><span class="mi">15</span><span class="p">.</span><span class="mi">0</span><span class="p">];</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">processBookQueury</span><span class="p">:(</span><span class="n">XMPPIQ</span> <span class="o">*</span><span class="p">)</span><span class="nv">iq</span> <span class="nf">withInfo</span><span class="p">:(</span><span class="n">id</span> <span class="o">&lt;</span><span class="n">XMPPTrackingInfo</span><span class="p">)</span><span class="nv">info</span> <span class="p">{</span>
+   <span class="p">...</span>
+<span class="p">}</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">xmppStream</span><span class="p">:(</span><span class="n">XMPPStream</span> <span class="o">*</span><span class="p">)</span><span class="nv">stream</span> <span class="nf">didReceiveIQ</span><span class="p">:(</span><span class="n">XMPPIQ</span> <span class="o">*</span><span class="p">)</span><span class="nv">iq</span>
+<span class="p">{</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">type</span> <span class="o">=</span> <span class="p">[</span><span class="n">iq</span> <span class="nf">type</span><span class="p">];</span>
+
+    <span class="k">if</span> <span class="p">([</span><span class="n">type</span> <span class="nf">isEqualToString</span><span class="p">:</span><span class="s">@"result"</span><span class="p">]</span> <span class="o">||</span> <span class="p">[</span><span class="n">type</span> <span class="nf">isEqualToString</span><span class="p">:</span><span class="s">@"error"</span><span class="p">])</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">iqTracker</span> <span class="nf">invokeForID</span><span class="p">:[</span><span class="n">iq</span> <span class="nf">elementID</span><span class="p">]</span> <span class="nf">withObject</span><span class="p">:</span><span class="n">iq</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p>####---- EXAMPLE 2 - SIMPLE TRACKING WITH BLOCK HANDLER ----</p>
+<div class="highlight"><pre><code class="language-objc" data-lang="objc">
+ <span class="n">XMPPIQ</span> <span class="o">*</span><span class="n">iq</span> <span class="o">=</span> <span class="p">...</span>
+
+ <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">blockHandler</span><span class="p">)(</span><span class="n">XMPPIQ</span> <span class="o">*</span><span class="p">,</span> <span class="n">id</span> <span class="o">&lt;</span><span class="n">XMPPTrackingInfo</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">=</span> <span class="o">^</span><span class="p">(</span><span class="n">XMPPIQ</span> <span class="o">*</span><span class="n">iq</span><span class="p">,</span> <span class="n">id</span> <span class="o">&lt;</span><span class="n">XMPPTrackingInfo</span><span class="o">&gt;</span> <span class="n">info</span><span class="p">)</span> <span class="p">{</span>
+     <span class="p">...</span>
+ <span class="p">};</span>
+ <span class="p">[</span><span class="n">iqTracker</span> <span class="nf">addID</span><span class="p">:[</span><span class="n">iq</span> <span class="nf">elementID</span><span class="p">]</span> <span class="nf">block</span><span class="p">:</span><span class="n">blockHandler</span> <span class="nf">timeout</span><span class="p">:</span><span class="mi">15</span><span class="p">.</span><span class="mi">0</span><span class="p">];</span>
+
+ <span class="c1">// Same xmppStream:didReceiveIQ: as example 1
+</span></code></pre></div>
+<h4>---- EXAMPLE 3 - ADVANCED TRACKING ---</h4>
+<div class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">PingTrackingInfo</span> <span class="p">:</span> <span class="nc">XMPPBasicTrackingInfo</span>
+    <span class="p">...</span>
+<span class="k">@end</span>
+<span class="n">XMPPIQ</span> <span class="o">*</span><span class="n">ping</span> <span class="o">=</span> <span class="p">...</span>
+<span class="n">PingTrackingInfo</span> <span class="o">*</span><span class="n">pingInfo</span> <span class="o">=</span> <span class="p">...</span>
+<span class="p">[</span><span class="n">iqTracker</span> <span class="nf">addID</span><span class="p">:[</span><span class="n">ping</span> <span class="nf">elementID</span><span class="p">]</span> <span class="nf">trackingInfo</span><span class="p">:</span><span class="n">pingInfo</span><span class="p">];</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">handlePong</span><span class="p">:(</span><span class="n">XMPPIQ</span> <span class="o">*</span><span class="p">)</span><span class="nv">iq</span> <span class="nf">withInfo</span><span class="p">:(</span><span class="n">PingTrackingInfo</span> <span class="o">*</span><span class="p">)</span><span class="nv">info</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+<span class="c1">// Same xmppStream:didReceiveIQ: as example 1
+</span></code></pre></div>
+<h4>---- Validating Responses ----</h4>
+
+<p>XMPPIDTracker还可以用来验证该响应是从来自期望的的JID。
+要做到这一点，你需要实例化 XMPPIDTracker与其中请求/响应将被跟踪的request/response的stream。
+xmppIDTracker = [[XMPPIDTracker alloc] initWithStream:stream dispatchQueue:queue];
+您还需要元素（不仅仅是ID）提供给添加一个调用的方法。</p>
+
+<h4>---- EXAMPLE 1 - SIMPLE TRACKING WITH TARGET / SELECTOR AND VALIDATION ----</h4>
+<div class="highlight"><pre><code class="language-objc" data-lang="objc"><span class="n">XMPPIQ</span> <span class="o">*</span><span class="n">iq</span> <span class="o">=</span> <span class="p">...</span>
+<span class="p">[</span><span class="n">iqTracker</span> <span class="nf">addElement</span><span class="p">:</span><span class="n">iq</span> <span class="nf">target</span><span class="p">:</span><span class="n">self</span> <span class="nf">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nf">processBookQuery</span><span class="p">:</span><span class="nf">withInfo</span><span class="p">:)</span> <span class="nf">timeout</span><span class="p">:</span><span class="mi">15</span><span class="p">.</span><span class="mi">0</span><span class="p">];</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">processBookQueury</span><span class="p">:(</span><span class="n">XMPPIQ</span> <span class="o">*</span><span class="p">)</span><span class="nv">iq</span> <span class="nf">withInfo</span><span class="p">:(</span><span class="n">id</span> <span class="o">&lt;</span><span class="n">XMPPTrackingInfo</span><span class="p">)</span><span class="nv">info</span> <span class="p">{</span>
+   <span class="p">...</span>
+<span class="p">}</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">xmppStream</span><span class="p">:(</span><span class="n">XMPPStream</span> <span class="o">*</span><span class="p">)</span><span class="nv">stream</span> <span class="nf">didReceiveIQ</span><span class="p">:(</span><span class="n">XMPPIQ</span> <span class="o">*</span><span class="p">)</span><span class="nv">iq</span>
+<span class="p">{</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">type</span> <span class="o">=</span> <span class="p">[</span><span class="n">iq</span> <span class="nf">type</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">type</span> <span class="nf">isEqualToString</span><span class="p">:</span><span class="s">@"result"</span><span class="p">]</span> <span class="o">||</span> <span class="p">[</span><span class="n">type</span> <span class="nf">isEqualToString</span><span class="p">:</span><span class="s">@"error"</span><span class="p">])</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">iqTracker</span> <span class="nf">invokeForElement</span><span class="p">:</span><span class="n">iq</span> <span class="nf">withObject</span><span class="p">:</span><span class="n">iq</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div>
+<p>这个类不是线程安全的
+它被设计成一个线程安全上下文中使用(e.g. within a single dispatch_queue).</p>
+</span>
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            mind, think
+          </small>
+        </div>
+        
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/">@</a> or leave a comment below!
+      </div>
+
+      
+      <div class="content-panel comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+function disqus_config() { this.experiment.enable_scroll_container = true; }
+var disqus_shortname = "jianAjian"; // required: replace example with your forum shortname
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    感谢作者 <i class="fa fa-heart"></i><a href="https://twitter.com/_JacobTomlinson">Jacob Tomlinson</a>提供该博客模板
+  </div>
+  <div class="col-md-6">
+    <a href="https://github.com/jacobtomlinson/carte-noire">模板地址</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20365477-4']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>
